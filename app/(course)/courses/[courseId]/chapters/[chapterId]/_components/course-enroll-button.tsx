@@ -8,12 +8,12 @@ import toast from "react-hot-toast";
 
 
 interface CourseEnrollButtonProps{
-    price: number;
+    //price: number;
     courseId: string;
 }
 
 export const CourseEnrollButton = ({
-    price,
+    //price,
     courseId
 }:CourseEnrollButtonProps) => {
 
@@ -22,8 +22,9 @@ export const CourseEnrollButton = ({
     const onClick = async () => {
         try{
             setIsLoading(true);
-            const response = await axios.post(`/api/courses/${courseId}/checkout`)
-            window.location.assign(response.data.url);
+            await axios.post(`/api/courses/${courseId}/enroll`)
+            toast.success("Successfully enrolled in the course!");
+            //window.location.assign(response.data.url);
 
         }catch{
             toast.error("Something went wrong");
@@ -38,7 +39,11 @@ export const CourseEnrollButton = ({
         disabled={isLoading}
         size="sm"
         className="w-auto md:auto ">
-            Enroll for {formatPrice(price)}
+            Enroll for free
+    
         </Button>
     )
+
+    //Enroll for {formatPrice(price)}
+
 }

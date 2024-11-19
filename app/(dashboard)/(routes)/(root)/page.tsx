@@ -20,6 +20,7 @@ export default async function Dashboard() {
         coursesInProgress,
     } = await getDashboardCourses(userId);
 
+ 
 
     return(
 

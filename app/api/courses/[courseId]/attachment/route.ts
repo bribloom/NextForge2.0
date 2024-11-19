@@ -23,7 +23,7 @@ export async function POST(
 
         });
 
-        if(courseOwner) {
+        if(!courseOwner) {
             return new NextResponse("Unauthorized", {status: 401});
         }
 
