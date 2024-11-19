@@ -1,5 +1,6 @@
 
 import { getDashboardCourses } from "@/actions/get-dashboard-courses";
+import { getRecommendations } from "@/actions/recommendation-algorithm";
 import { CoursesList } from "@/components/courses-list";
 import { UserButton } from "@clerk/nextjs"
 import { auth } from "@clerk/nextjs/server"
@@ -20,7 +21,8 @@ export default async function Dashboard() {
         coursesInProgress,
     } = await getDashboardCourses(userId);
 
- 
+ // Fetch recommendations algorithm
+ const recommendedCourses = await getRecommendations(userId);
 
     return(
 
