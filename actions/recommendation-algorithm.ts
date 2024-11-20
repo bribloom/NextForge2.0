@@ -1,9 +1,11 @@
 // actions/recommendations.ts
 import { db } from "@/lib/db";
 import { Course, UserProgress } from "@prisma/client"; // Import your Prisma types
+import { NextResponse } from "next/server"; // Import NextResponse for returning responses
 
-export const getRecommendations = async (userId: string): Promise<Course[]> => {
+export const getRecommendations = async (userId: string): Promise<NextResponse> => {
     // Fetch the courses completed by the user
+    
     const completedCourses = await db.userProgress.findMany({
         where: {
             userId,
@@ -41,6 +43,7 @@ export const getRecommendations = async (userId: string): Promise<Course[]> => {
             },
         },
     });
+    console.log("Similar Users:", similarUsers); // Log similar users
 
     // Get unique course recommendations from similar users
     const recommendedCourses = new Set<string>(); // Use Set<string> to ensure unique course IDs
@@ -50,6 +53,7 @@ export const getRecommendations = async (userId: string): Promise<Course[]> => {
 
     // Remove already completed courses from recommendations
     const finalRecommendations = Array.from(recommendedCourses).filter(courseId => !completedCourseIds.includes(courseId));
+    console.log("Final Recommendations:", finalRecommendations); // Log final recommendations
 
     // Fetch course details for the recommended course IDs
     const courses = await db.course.findMany({
@@ -60,6 +64,15 @@ export const getRecommendations = async (userId: string): Promise<Course[]> => {
         },
     });
 
-    return courses;
-};
+    // Create a response object
+    const response = {
+        completedCourses: completedCourses.map(progress => progress.chapter.course), // Return completed courses
+        similarUsers: similarUsers.map(user => user.chapter.course), // Extract course details from similar users
+        recommendedCourses: courses,
+    };
 
+
+    
+    // Return the response as JSON
+    return NextResponse.json(response);
+};
