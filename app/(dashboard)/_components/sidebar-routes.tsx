@@ -1,6 +1,6 @@
 "use client";
 
-import { UserPlus, Layout, BotMessageSquare, LayoutList, Settings, BookOpen, ChartColumnBig, Award} from "lucide-react";
+import { AwardIcon, Layout, BotMessageSquare, LayoutList, Settings, BookOpen, ChartColumnBig, Award} from "lucide-react";
 import { SidebarItem } from "./sidebar-item";
 import { usePathname } from "next/navigation";
 
@@ -32,7 +32,14 @@ const guestRoutes = [
     icon:Settings,
     label:"Settings",
     href:"/settingside"
-    }
+    },
+    {
+    icon:AwardIcon,
+    label:"Badges",
+    href:"/settingside"
+    },
+
+
 
     
 

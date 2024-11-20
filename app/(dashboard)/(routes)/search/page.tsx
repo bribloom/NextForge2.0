@@ -46,7 +46,7 @@ const SearchPage = async ({
             <div className="font-semibold mt-5">
             <Banner
                 variant={"success"}
-                label="Access our courses for free, though keep in mind that some instructors may require a purchase for certain content."
+                label="Access our courses for free."
                 />
             </div>
         <div className="p-6 space-y-7">

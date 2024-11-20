@@ -175,7 +175,7 @@ const CourseIdPage = async({
                             <div>
         
 
-                          <div className="flex items-center gap-x-2">
+                          <div className="flex items-center mt-5 gap-x-2">
                             <IconBadge icon={ListCheck}
                             backgroundVariant="purple"
                              iconVariant="purple"
@@ -194,34 +194,7 @@ const CourseIdPage = async({
                              />
                         </div>
 
-                            <div>
 
-                                <div className="flex items-center gap-x-2">
-
-                                    <IconBadge icon={CircleDollarSign}
-                                      backgroundVariant="success"
-                                         iconVariant="success"
-                                     size="default"
-                                    />
-
-                                    <h2 className="text-xl font-semibold">
-
-                                        Sell your course 
-
-                                    </h2>
-
-                                </div>
-
-                                    <PriceForm
-                                      
-                                        initialData={course}
-                                        courseId={course.id}
-
-                                    />
-
-                            </div>
-
-                            <div>
 
                             <div className="flex items-center gap-x-2">
 
@@ -249,7 +222,7 @@ const CourseIdPage = async({
 
                 </div>
 
-        </div>
+        
         </>   //end of fragment    
     );
 }

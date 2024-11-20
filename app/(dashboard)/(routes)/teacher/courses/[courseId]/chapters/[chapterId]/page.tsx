@@ -43,7 +43,6 @@ const ChapterIdPage = async ({
         chapter.title,
         chapter.description,
         chapter.videoUrl,
-    
     ];
 
     const totalFields = requiredFields.length;
@@ -118,22 +117,7 @@ const ChapterIdPage = async ({
                              />
                              
                         </div>
-                        <div>
-                            <div className="flex items-center gap-x-2">
-                                <IconBadge icon={Eye} 
-                                backgroundVariant="purple"
-                                iconVariant="purple"
-                                size="default"/>
-                                <h2 className="text-xl">
-                                    Access Settings
-                                </h2>
-                            </div>
-                            <ChapterAccessForm
-                                initialData={chapter}
-                                courseId={params.courseId}
-                                chapterId={params.chapterId}
-                            />
-                        </div>
+                
                      </div>
 
                         <div>
