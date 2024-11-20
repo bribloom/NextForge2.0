@@ -32,6 +32,7 @@ category Category? @relation(fields: [categoryId], references: [id])
 chapters Chapter[]
 attachment Attachment[]
 puchases Purchase[]
+badges    Badge[]  // Define the relation back to badges
 
 
 createdAt DateTime @default(now())
@@ -161,5 +162,6 @@ model Badge {
     userId    String
     chapterId String
     courseId  String
+     course    Course   @relation(fields: [courseId], references: [id]) // Define the relation
     createdAt DateTime @default(now())
 }
