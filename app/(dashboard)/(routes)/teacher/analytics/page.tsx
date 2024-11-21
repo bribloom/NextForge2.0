@@ -26,10 +26,7 @@ const AnalyticsPage = async() => {
                     label="Total Students"
                     value={totalSales}
                 />
-                 <DataCard
-                    label="Total Revenue"
-                    value={totalRevenue}
-                />
+                    
             </div>
         </div>
 

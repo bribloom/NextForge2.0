@@ -13,7 +13,7 @@ export const DataCard = ({
     shouldFormat
 }:DataCardProps) => {
     return (
-       <Card className="bg-purple-900 text-white">
+       <Card className="bg-emerald-700 text-white">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-semibold">
                     {label}
