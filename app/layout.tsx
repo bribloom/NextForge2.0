@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/providers/toaster-provider";
 import { ConfettiProvider } from "@/components/providers/confetti-provider";
-import LandingPage from "./landingpage/page";
+import LandingPage from "./nextforge/page";
 
 
 const geistSans = localFont({
