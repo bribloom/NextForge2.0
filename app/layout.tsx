@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/providers/toaster-provider";
 import { ConfettiProvider } from "@/components/providers/confetti-provider";
+import LandingPage from "./landingpage/page";
 
 
 const geistSans = localFont({
@@ -35,7 +36,8 @@ export default function RootLayout({
           <ConfettiProvider/>
           <ToastProvider/>
 
-        {children}
+          {children}
+
       </body>
     </html>
     </ClerkProvider>
