@@ -63,7 +63,7 @@ const ChapterIdPage = async ({
              {isLocked && (
                 <Banner
                 variant={"warning"}
-                    label="You need to purchase this course to watch this chapter."
+                    label="You need to enroll this course to watch this chapter."
                 />
             )}
             <div className="flex flex-col max-w-4xl mx-auto pb-20">
@@ -93,7 +93,6 @@ const ChapterIdPage = async ({
                             ):(
                             <CourseEnrollButton 
                                 courseId={params.courseId}
-                                price={course.price!}
                             />
                         )}
                    </div> 
@@ -113,7 +112,7 @@ const ChapterIdPage = async ({
                                      <a href={attachment.url}
                                         target="_blank"
                                         key={attachment.id}
-                                        className="flex items-center p-3  w-full bg-neutral-700 border text-purple-500 hover:underline"
+                                        className="flex items-center p-3  w-full bg-neutral-700 border text-emerald-500 hover:underline"
                                      >
                                         <File />
                                         <p className="line-clamp-1">

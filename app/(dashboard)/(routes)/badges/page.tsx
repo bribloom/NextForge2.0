@@ -14,15 +14,16 @@ const BadgesPage = async () => {
         where: { userId },
         include: {
             course: true, // Assuming you want course details
+            chapter: true, // Include the chapter details
         },
     });
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-5 ml-5 mr-5 mb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {badges.map((badge) => (
-                <div key={badge.id} className="border rounded-lg p-4 bg-purple-900">
+                <div key={badge.id} className="border rounded-lg p-4 bg-emerald-600">
                     <h3 className="text-lg font-semibold">{badge.course.title}</h3>
-                    <p className="text-sm">Completed Chapter: {badge.chapterId}</p>
+                    <p className="text-sm font-semibold">Completed Chapter: {badge.chapter.title}</p>
                     <span className="badge">🏅 Badge Earned!</span>
                 </div>
             ))}

@@ -92,7 +92,7 @@ model Chapter {
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
 
-
+badges    Badge[]  // Define the relation back to badges
   @@index([courseId])
 }
 
@@ -145,23 +145,13 @@ model Purchase {
 
 }
 
-
-model StripeCustomer {
-
-  id String @id @default(uuid())
-  userId String @unique
-  StripeCustomerId String @unique
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-}
-
 model Badge {
     id String @id @default(uuid())
     userId    String
     chapterId String
     courseId  String
-     course    Course   @relation(fields: [courseId], references: [id]) // Define the relation
+         course    Course   @relation(fields: [courseId], references: [id]) // Define the relation
+         chapter    Chapter  @relation(fields: [chapterId], references: [id]) // Ensure this line exists
+
     createdAt DateTime @default(now())
 }

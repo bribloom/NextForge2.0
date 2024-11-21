@@ -36,7 +36,7 @@ const guestRoutes = [
     {
     icon:AwardIcon,
     label:"Badges",
-    href:"/settingside"
+    href:"/badges"
     },
 
 
