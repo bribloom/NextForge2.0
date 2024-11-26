@@ -13,8 +13,9 @@ export default async function Dashboard() {
     const { userId } = auth();
 
     if(!userId) {
-        return redirect("/sign-in");
+        return redirect("/nextforge");
     }
+        //
 
     const {
         completedCourses,

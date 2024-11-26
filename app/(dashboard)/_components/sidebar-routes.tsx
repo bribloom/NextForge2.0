@@ -29,16 +29,19 @@ const guestRoutes = [
 
 
     {
+        icon:AwardIcon,
+        label:"Badges",
+        href:"/badges"
+        },
+    
+
+
+    {
     icon:Settings,
     label:"Settings",
     href:"/settingside"
     },
-    {
-    icon:AwardIcon,
-    label:"Badges",
-    href:"/badges"
-    },
-
+  
 
 
     
