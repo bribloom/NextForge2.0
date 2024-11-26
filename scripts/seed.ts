@@ -11,11 +11,11 @@ async function main() {
             
             data: [
 
-                {name: "Android Development"},
-                {name: "Firebase"},
-                {name: "Photoshop"},
-                {name: "React Native"},
-                {name: "Java Development"},
+                {name: "Java"},
+                {name: "JavaScript"},
+                {name: "Python"},
+                {name: "C#"},
+                {name: "MySQL"},
             ]
 
         });
