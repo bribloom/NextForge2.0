@@ -1,12 +1,10 @@
-
 //PASSING THE CODE FOR COURSE CARD IN COURSE LIST
 import { Category, Course } from "@prisma/client";
 import { CourseCard } from "@/components/course-card";
 
-
-type CourseWithProgresWithCategory =  Course & {
-    
-    //Added
+// Export the type so it can be imported in other files
+export type CourseWithProgresWithCategory = Course & {
+    // Added
     id: string;
     userId: string;
     title: string;
@@ -17,16 +15,11 @@ type CourseWithProgresWithCategory =  Course & {
     createdAt: Date;
     updatedAt: Date;
     isPublished: boolean;
-    //End
+    // End
 
-    //category: Category | null;
-    //chapters: {id: string}[];
-    chapters: { id: string }[]; // Assuming chapters have at least an id
-
+    category: Category | null;
+    chapters: { id: string }[];
     progress: number | null;
-    category: { name: string; id: string } | null; // Include category and updated category
-
-
 };
 
 interface CoursesListProps {
@@ -35,13 +28,11 @@ interface CoursesListProps {
 
 export const CoursesList = ({
     items
-}:CoursesListProps) => {
-    return(
+}: CoursesListProps) => {
+    return (
         <div>
-
-    
-          <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-            {items.map((item) =>(
+            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
+                {items.map((item) => (
                     <CourseCard
                         key={item.id}
                         id={item.id}
@@ -52,14 +43,13 @@ export const CoursesList = ({
                         progress={item.progress}
                         category={item?.category?.name!}
                     />
-               
-            ))}  
+                ))}
             </div>
-            {items.length === 0 &&(
+            {items.length === 0 && (
                 <div className="text-center text-sm text-muted-foreground mt-10">
                     No courses found
                 </div>
             )}
         </div>
-    )
+    );
 }

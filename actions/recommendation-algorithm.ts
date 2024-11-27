@@ -1,8 +1,10 @@
-import { db } from "@/lib/db";
-import { Course } from "@prisma/client"; // Import your Prisma types
-import { NextResponse } from "next/server"; // Import NextResponse for returning responses
+//RECOMMMENDATION: CONTENT-BASED FILTERING ALGORITHM
 
-export const getCourseRecommendations = async (userId: string): Promise<{ recommendedCourses: Course[] }> => {
+import { db } from "@/lib/db";
+import { CourseWithProgresWithCategory } from "@/components/courses-list"; // Adjust the path as necessary
+
+
+export const getCourseRecommendations = async (userId: string): Promise<{ recommendedCourses: CourseWithProgresWithCategory[] }> => {
     // Fetch the courses completed and in progress by the user
     const completedCourses = await db.userProgress.findMany({
         where: {
@@ -55,10 +57,41 @@ export const getCourseRecommendations = async (userId: string): Promise<{ recomm
                 in: allCategories, // Filter by the identified categories
             },
         },
+        include: {
+            chapters: true, // Include chapters
+            category: true, // Include category
+        },
     });
+
+    // Calculate progress for each recommended course
+    const coursesWithProgress = await Promise.all(recommendedCourses.map(async (course) => {
+        const progress = await db.userProgress.count({
+            where: {
+                userId,
+                chapter: {
+                    courseId: course.id,
+                },
+                isCompleted: true,
+            },
+        });
+
+        const totalChapters = await db.chapter.count({
+            where: {
+                courseId: course.id,
+            },
+        });
+
+        const progressPercentage = totalChapters > 0 ? (progress / totalChapters) * 100 : 0;
+
+        return {
+            ...course,
+            progress: progressPercentage,
+            chapters: course.chapters.map(chapter => ({ id: chapter.id })), // Map chapters to the required format
+        };
+    }));
 
     // Return the structured response
     return {
-        recommendedCourses,
+        recommendedCourses: coursesWithProgress,
     };
 };

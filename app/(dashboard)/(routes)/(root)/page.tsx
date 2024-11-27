@@ -13,28 +13,27 @@ export default async function Dashboard() {
         return redirect("/nextforge");
     }
 
+    console.log("User  ID:", userId);
+
+
     // Fetch completed and in-progress courses
     const { completedCourses, coursesInProgress } = await getDashboardCourses(userId);
+    console.log("Completed Courses:", completedCourses); // Log completed courses
+    console.log("Courses In Progress:", coursesInProgress); // Log courses in progress
 
     // Fetch recommendations based on completed and in-progress courses
     const { recommendedCourses } = await getCourseRecommendations(userId);
+    console.log("Recommended Courses:", recommendedCourses); // Log recommended courses
 
     return (
         <div className="p-6 space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/** 
-                 *  <InfoCard
-                    icon={Clock}
-                    label="In Progress"
-                    numberOfItems={coursesInProgress.length}
-                /> 
-                 */}
-            </div>
             <h2 className="text-xl font-semibold">Courses In Progress</h2>
             <CoursesList items={coursesInProgress} />
+
             <h2 className="text-xl font-semibold">Completed Courses</h2>
             <CoursesList items={completedCourses} />
-            <h2 className="text-xl font-semibold">Recommended For You</h2>
+
+            <h2 className="text-xl font-semibold">Recommended Courses</h2>
             <CoursesList items={recommendedCourses} />
         </div>
     );
