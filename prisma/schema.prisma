@@ -17,6 +17,14 @@ datasource db {
   relationMode = "prisma"
 }
 
+
+//This model is for Recommendation Algorithm: Hybrid Recommendation System
+model User {
+   id         String   @id @default(uuid())
+  email      String   @unique
+  progress   UserProgress[]
+}
+
 model Course {
 
 id String @id @default(uuid())
@@ -111,6 +119,7 @@ model MuxData {
 model UserProgress {
   id String @id @default(uuid())
   userId String
+  
 
 
   chapterId String
@@ -124,6 +133,8 @@ model UserProgress {
   @@index([chapterId])
   @@unique([userId,chapterId])
 
+//This model is for Recommendation Algorithm: Hybrid Recommendation System
+  user User @relation(fields: [userId], references: [id])
 
 }
 
