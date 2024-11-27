@@ -18,9 +18,11 @@ type CourseWithProgresWithCategory =  Course & {
     updatedAt: Date;
     isPublished: boolean;
     //End
-    
+
     //category: Category | null;
-    chapters: {id: string}[];
+    //chapters: {id: string}[];
+    chapters: { id: string }[]; // Assuming chapters have at least an id
+
     progress: number | null;
     category: { name: string; id: string } | null; // Include category and updated category
 

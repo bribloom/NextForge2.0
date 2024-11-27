@@ -18,12 +18,7 @@ datasource db {
 }
 
 
-//This model is for Recommendation Algorithm: Hybrid Recommendation System
-model User {
-   id         String   @id @default(uuid())
-  email      String   @unique
-  progress   UserProgress[]
-}
+
 
 model Course {
 
@@ -48,7 +43,6 @@ updatedAt DateTime @updatedAt
 
 isPublished Boolean @default(false)//temporary add for fixing issues in route.ts - isPublished: false,
 
-    userProgress UserProgress[]
 
 @@index([categoryId])//for model category
 @@fulltext([title])
@@ -121,7 +115,6 @@ model UserProgress {
   id String @id @default(uuid())
   userId String
   
-    courseId    String   // This field must be defined
 
 
   chapterId String
@@ -135,10 +128,7 @@ model UserProgress {
   @@index([chapterId])
   @@unique([userId,chapterId])
 
-//This model is for Recommendation Algorithm: Hybrid Recommendation System
-  user User @relation(fields: [userId], references: [id])
 
-      course    Course   @relation(fields: [courseId], references: [id])
 
 
 }
