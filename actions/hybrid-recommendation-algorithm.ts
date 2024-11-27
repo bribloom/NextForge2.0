@@ -83,7 +83,7 @@ const getContentBasedRecommendations = async (userId: string): Promise<string[]>
 };
 
 // Hybrid recommendation function
-export const getHybridRecommendations = async (userId: string): Promise<CourseWithProgressWithCategory[]> => {
+export const getHybridRecommendations = async (userId: string): Promise<Course[]> => {
     // Get recommendations from both methods
     const collaborativeRecommendations = await getCollaborativeRecommendations(userId);
     const contentBasedRecommendations = await getContentBasedRecommendations(userId);
