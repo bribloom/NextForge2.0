@@ -5,9 +5,25 @@ import { CourseCard } from "@/components/course-card";
 
 
 type CourseWithProgresWithCategory =  Course & {
-    category: Category | null;
+    
+    //Added
+    id: string;
+    userId: string;
+    title: string;
+    description: string | null;
+    imageUrl: string | null;
+    price: number | null;
+    categoryId: string | null;
+    createdAt: Date;
+    updatedAt: Date;
+    isPublished: boolean;
+    //End
+    
+    //category: Category | null;
     chapters: {id: string}[];
     progress: number | null;
+    category: { name: string; id: string } | null; // Include category and updated category
+
 
 };
 

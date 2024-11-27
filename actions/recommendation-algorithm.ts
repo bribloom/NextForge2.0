@@ -43,7 +43,7 @@ export const getRecommendations = async (userId: string): Promise<NextResponse> 
             },
         },
     });
-    console.log("Similar Users:", similarUsers); // Log similar users
+    //console.log("Similar Users:", similarUsers); // Log similar users
 
     // Get unique course recommendations from similar users
     const recommendedCourses = new Set<string>(); // Use Set<string> to ensure unique course IDs
@@ -53,7 +53,7 @@ export const getRecommendations = async (userId: string): Promise<NextResponse> 
 
     // Remove already completed courses from recommendations
     const finalRecommendations = Array.from(recommendedCourses).filter(courseId => !completedCourseIds.includes(courseId));
-    console.log("Final Recommendations:", finalRecommendations); // Log final recommendations
+    //console.log("Final Recommendations:", finalRecommendations); // Log final recommendations
 
     // Fetch course details for the recommended course IDs
     const courses = await db.course.findMany({
