@@ -23,7 +23,7 @@ const guestRoutes = [
 
     {
         icon: BotMessageSquare,
-        label: "NextAI",
+        label: "Next Chatbot",
         href:"/chatbot"
     },
 
