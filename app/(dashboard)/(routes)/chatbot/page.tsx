@@ -11,6 +11,7 @@ const Chatbot: React.FC = () => {
   const [userInput, setUserInput] = useState('');
   const [chatHistory, setChatHistory] = useState<{ user: string; bot: string | React.ReactNode }[]>([]);  const [language, setLanguage] = useState('java'); // Default  and change to fix error for red color
   const [responsesData, setResponsesData] = useState(javaResponses); // Set initial responses
+  const [faqs, setFaqs] = useState<{ question: string; pattern: string }[]>([]); // State for FAQs
 
   useEffect(() => {
     // Update responsesData based on selected language
@@ -23,6 +24,23 @@ const Chatbot: React.FC = () => {
     }
     console.log(`Responses updated to: ${language}`, responsesData); // Debugging line
   }, [language]);
+
+
+
+  
+  useEffect(() => {
+    // Define FAQ
+    const faqList = [
+      { question: "What is Java?", pattern: "What is Java?" },
+      { question: "How do I install Python?", pattern: "How do I install Python?" },
+      { question: "What is JavaScript used for?", pattern: "What is JavaScript used for?" },
+      
+    ];
+    // Randomly select FAQs
+    setFaqs(faqList.sort(() => Math.random() - 0.5)); // Shuffle the FAQs
+  }, []);
+
+
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(event.target.value);
@@ -66,6 +84,11 @@ const Chatbot: React.FC = () => {
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
+  };
+
+  const handleFAQClick = (pattern: string) => {
+    const response = getBotResponse(pattern);
+    setChatHistory([...chatHistory, { user: `FAQ: ${pattern}`, bot: response }]);
   };
 
   return (
@@ -123,6 +146,24 @@ const Chatbot: React.FC = () => {
           Send
         </button>
       </div>
+
+  {/* FAQ Section */}
+  <div className="mt-6">
+        <h2 className="text-lg font-semibold mb-2">Frequently Asked Questions</h2>
+        <ul className="space-y-2">
+          {faqs.map((faq, index) => (
+            <li key={index}>
+              <button 
+                onClick={() => handleFAQClick(faq.pattern)} 
+                className="text-blue-500 underline hover:text-blue-700"
+              >
+                {faq.question}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <button
         onClick={handleClearChat}
         className="w-full bg-red-500 mt-5 text-white p-2 rounded-2xl hover:bg-red-600 transition"

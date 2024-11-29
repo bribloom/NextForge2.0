@@ -14,7 +14,7 @@
         ]
       },
       {
-        "pattern": "how to install python|how to install python?|install python|python install|python installation",
+        "pattern": "how to install python|how do I install Python?|how to install python?|install python|python install|python installation",
         "responses": [
           "To install Python, you can download the latest version from the official Python website at python.org. Choose the installer for your operating system and follow the installation instructions.\n\nAfter installation, you can verify it by running `python --version` or `python3 --version` in your command line or terminal."
         ]

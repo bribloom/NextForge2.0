@@ -1,0 +1,26 @@
+{
+    "java": [
+      {
+        "question": "What is Java?",
+        "pattern": "What is Java?",
+        "response": "Java is a high-level, class-based, object-oriented programming language."
+      },
+      {
+        "question": "How do I install Java?",
+        "pattern": "how do I install Java?",
+        "response": "You can install Java from the official website at oracle.com."
+      }
+    ],
+    "python": [
+      {
+        "question": "What is Python?",
+        "pattern": "What is Python?",
+        "response": "Python is a high-level, interpreted programming language known for its readability."
+      },
+      {
+        "question": "How do I install Python?",
+        "pattern": "How do I install Python?",
+        "response": "You can install Python from the official website at python.org."
+      }
+    ]
+  }
