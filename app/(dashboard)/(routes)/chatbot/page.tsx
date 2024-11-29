@@ -41,8 +41,8 @@ const Chatbot: React.FC = () => {
   const getBotResponse = (message: string) => {
     // Use regex to match the intent patterns
     const intent = responsesData.intents.find((intent) => 
-      new RegExp(`^(${intent.pattern})$`, 'i').test(message) // Use ^ and $ to match the whole string
-    );
+      new RegExp(`${intent.pattern.replace('?', '\\?')}\\??`, 'i').test(message)
+  );
 
     if (intent) {
       const responses = intent.responses;
