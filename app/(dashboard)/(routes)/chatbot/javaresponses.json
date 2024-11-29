@@ -30,7 +30,7 @@
         ]
       },
       {
-        "pattern": "what is jdk",
+        "pattern": "what is jdk|what is jdk?",
         "responses": [
           "JDK stands for Java Development Kit, which is a software development kit used to develop Java applications.",
           "The JDK includes tools for developing, debugging, and monitoring Java applications."
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "pattern": "what is object-oriented programming|what is oop",
+        "pattern": "what is object-oriented programming|what is oop?",
         "responses": [
           "Object-Oriented Programming (OOP) is a programming paradigm that uses 'objects' to represent data and methods to manipulate that data.",
           "OOP focuses on using objects and classes to structure software programs."
@@ -58,7 +58,7 @@
         ]
       },
       {
-        "pattern": "what is an interface in java",
+        "pattern": "what is an interface in java|what is an interface in java?|what is interface in java?",
         "responses": [
           "An interface in Java is a reference type, similar to a class, that can contain only constants, method signatures, default methods, static methods, and nested types.",
           "Interfaces are used to achieve abstraction and multiple inheritance in Java."
@@ -79,35 +79,35 @@
         ]
       },
       {
-        "pattern": "what is polymorphism in java",
+        "pattern": "what is polymorphism in java|what is polymorphism in java?",
         "responses": [
           "Polymorphism is the ability of a variable, function, or object to take on multiple forms. In Java, it allows methods to do different things based on the object it is acting upon.",
           "Polymorphism can be achieved through method overriding and method overloading."
         ]
       },
       {
-        "pattern": "what is encapsulation in java",
+        "pattern": "what is encapsulation in java|what is encapsulation in java?",
         "responses": [
           "Encapsulation is the technique of wrapping the data (variables) and the code (methods) together as a single unit.",
           "It restricts direct access to some of an object's components and can prevent the accidental modification of data."
         ]
       },
       {
-        "pattern": "java collections framework",
+        "pattern": "java collections framework|java collections framework|what is java collections framework?|what is java collections?|what is java framework?",
         "responses": [
           "The Java Collections Framework is a unified architecture for representing and manipulating collections, allowing for the storage and retrieval of data.",
           "It provides interfaces like List, Set, and Map, along with implementations like ArrayList, HashSet, and HashMap."
         ]
       },
       {
-        "pattern": "what is java virtual machine",
+        "pattern": "what is java virtual machine|what is java virtual machine?|what is jvm?|what is jvm",
         "responses": [
           "The Java Virtual Machine (JVM) is an abstract computing machine that enables a computer to run Java programs.",
           "JVM provides the runtime environment in which Java bytecode can be executed."
         ]
       },
       {
-        "pattern": "what are java annotations",
+        "pattern": "what are java annotations|what are java annotations?",
         "responses": [
           "Java annotations are metadata that provide data about a program but are not part of the program itself.",
           "They can be used for various purposes such as providing information for the compiler, runtime processing, and code analysis."

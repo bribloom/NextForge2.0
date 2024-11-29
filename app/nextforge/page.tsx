@@ -27,19 +27,19 @@ const NextForge = () => {
             {/* Features Section */}
             <section className="py-20 bg-neutral-900 text-white">
                 <div className="max-w-6xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-center mb-12">Why Choose Us?</h2>
+                    <h2 className="text-4xl font-bold text-center mb-12">Why Nextforge?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="p-6 bg-neutral-900 border border-white rounded-lg shadow-lg">
                             <h3 className="text-xl font-semibold mb-2">Comprehensive Courses</h3>
-                            <p>Explore a wide range of topics and enhance your skills with our expertly designed courses.</p>
+                            <p>Explore different topics and enhance your skills with our designed courses.</p>
                         </div>
                         <div className="p-6 bg-neutral-900 border border-white rounded-lg shadow-lg">
-                            <h3 className="text-xl font-semibold mb-2">Expert Instructors</h3>
-                            <p>Learn from industry professionals who bring real-world experience to the classroom.</p>
+                            <h3 className="text-xl font-semibold mb-2">Flexible Learning</h3>
+                            <p>Enjoy the freedom to learn at your own pace with our online courses. Access materials anytime, anywhere, and fit your education around your busy schedule.</p>
                         </div>
                         <div className="p-6 bg-neutral-900 border border-white rounded-lg shadow-lg">
-                            <h3 className="text-xl font-semibold mb-2">Community Support</h3>
-                            <p>Join a vibrant community of learners and get support from peers and mentors.</p>
+                            <h3 className="text-xl font-semibold mb-2">Earn Badges</h3>
+                            <p>Showcase your achievements with our digital badges! Complete courses and earn badges that highlight your skills and accomplishments.</p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const NextForge = () => {
 
             {/* Footer Section */}
             <footer className="py-10 bg-neutral-900 text-center">
-                <p className="text-sm">© {new Date().getFullYear()} Your Learning Platform. All rights reserved.</p>
+                <p className="text-sm">© {new Date().getFullYear()} Nextforge. All rights reserved.</p>
             </footer>
         </div>
     );
