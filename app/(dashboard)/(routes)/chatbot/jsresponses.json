@@ -1,0 +1,332 @@
+{
+    "intents": [
+      {
+        "pattern": "what is javascript?|what is javascript|introduction to javascript|javascript programming",
+        "responses": [
+          "JavaScript is a high-level, interpreted programming language that is widely used for web development. It was created by Brendan Eich in 1995 and is an essential part of web applications.",
+          "JavaScript enables interactive web pages and is an essential part of web applications. It is supported by all modern web browsers."
+        ]
+      },
+      {
+        "pattern": "what are the features of javascript?|features of javascript|javascript features",
+        "responses": [
+          "Some key features of JavaScript include:\n1. **Dynamic Typing**: Variables in JavaScript can hold values of any type, and you can change the type at runtime.\n2. **Object-Oriented**: JavaScript supports object-oriented programming with prototypes.\n3. **First-Class Functions**: Functions are treated as first-class citizens in JavaScript, meaning they can be assigned to variables, passed as arguments, and returned from other functions.\n4. **Asynchronous Programming**: JavaScript supports asynchronous programming through callbacks, promises, and async/await syntax.\n5. **Event-Driven**: JavaScript is often used in event-driven programming, allowing developers to create interactive applications."
+        ]
+      },
+      {
+        "pattern": "how do I install javascript?|installing javascript|javascript installation",
+        "responses": [
+          "JavaScript is built into web browsers, so you don't need to install it separately. You can start using JavaScript by simply opening your browser's developer tools and writing code in the console.\n\nIf you want to run JavaScript on the server side, you can install Node.js, which allows you to run JavaScript outside the browser."
+        ]
+      },
+      {
+        "pattern": "what is a javascript array?|javascript array",
+        "responses": [
+          "An array in JavaScript is a special variable that can hold more than one value at a time. It is an ordered collection of items that can be of any type. You can create an array using square brackets `[]`. For example:\n\n```javascript\nlet fruits = ['apple', 'banana', 'orange'];\n```"
+        ]
+      },
+      {
+        "pattern": "how to create a function in javascript?|javascript function",
+        "responses": [
+          "To create a function in JavaScript, use the `function` keyword followed by the function name and parentheses. Here's a simple example:\n\n```javascript\nfunction greet(name) {\n    return `Hello, ${name}!`;\n}\n```\nYou can call this function by passing a name as an argument, like this:\n\n```javascript\ngreet('Alice');  // Output: Hello, Alice!`\n```"
+        ]
+      },
+      {
+        "pattern": "what is an object in javascript?|javascript object",
+        "responses": [
+          "An object in JavaScript is a collection of key-value pairs. It is a complex data type that allows you to store multiple values in a single variable. You can create an object using curly braces `{}`. For example:\n\n```javascript\nlet person = {\n    name: 'Alice',\n    age: 25,\n    city: 'New York'\n};\n```"
+        ]
+      },
+      {
+        "pattern": "what is a promise in javascript?|javascript promise",
+        "responses": [
+          "A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A promise can be in one of three states: pending, fulfilled, or rejected. You can create a promise using the `Promise` constructor:\n\n```javascript\nlet myPromise = new Promise((resolve, reject) => {\n    // Asynchronous operation\n});\n```"
+        ]
+      },
+      {
+        "pattern": "what is the difference between == and === in javascript?|javascript equality",
+        "responses": [
+          "In JavaScript, `==` is the equality operator that checks for equality of values after performing type coercion, while `===` is the strict equality operator that checks for equality without type coercion. This means that `===` will only return true if both the value and the type are the same.\n\nFor example:\n```javascript\nconsole.log(5 == '5');  // true (type coercion)\nconsole.log(5 === '5'); // false (different types)\n```"
+        ]
+      },
+      {
+        "pattern": "tell me about javascript?|give me an overview of javascript|javascript overview|javascript introduction",
+        "responses": [
+          "JavaScript is a versatile, high-level programming language primarily used for enhancing web pages to provide interactive features. It allows developers to implement complex features on web pages, such as dynamic content updates, multimedia control, and animated graphics.",
+          "JavaScript is an essential part of web development alongside HTML and CSS. It is widely supported by all modern web browsers and is used in both client-side and server-side development."
+        ]
+      },
+      {
+        "pattern": "what can I do with javascript?|uses of javascript|javascript applications",
+        "responses": [
+          "JavaScript can be used for a variety of applications, including:\n1. **Web Development**: Building interactive and dynamic websites.\n2. **Server-Side Development**: Using frameworks like Node.js for backend development.\n3. **Game Development**: Creating browser-based games using libraries like Phaser.\n4. **Mobile App Development**: Building mobile applications using frameworks like React Native.\n5. **Desktop Applications**: Developing cross-platform desktop applications using Electron."
+        ]
+      },
+      {
+        "pattern": "who created javascript?|history of javascript|javascript origin",
+        "responses": [
+          "JavaScript was created by Brendan Eich in 1995 while he was working at Netscape Communications Corporation. It was initially developed under the name Mocha, later renamed to LiveScript, and finally became known as JavaScript. The language was designed to enable dynamic and interactive web pages."
+        ]
+      },
+      {
+        "pattern": "what is the syntax of javascript?|javascript syntax|javascript code structure",
+        "responses": [
+          "JavaScript syntax is the set of rules that defines a correctly structured JavaScript program. Here are some basic elements of JavaScript syntax:\n1. **Variables**: Declared using `var`, `let`, or `const`.\n2. **Functions**: Defined using the `function` keyword or as arrow functions.\n3. **Control Structures**: Includes `if`, `else`, `switch`, `for`, and `while` statements.\n4. **Objects and Arrays**: Used to store collections of data.\n\nExample:\n```javascript\nlet greeting = 'Hello, world!';\nfunction greet() {\n    console.log(greeting);\n}\ngreet();\n```"
+        ]
+      },
+      {
+        "pattern": "what is event handling in javascript?|javascript events|javascript event handling",
+        "responses": [
+          "Event handling in JavaScript refers to the mechanism that allows you to respond to user interactions or other events that occur in the browser. You can attach event listeners to elements to execute code when an event occurs, such as clicks, key presses, or mouse movements.\n\nExample:\n```javascript\ndocument.getElementById('myButton').addEventListener('click', function() {\n    alert('Button clicked!');\n});\n```"
+        ]
+      },
+      {
+        "pattern": "what is a statement in javascript?|javascript statements|define javascript statement",
+        "responses": [
+          "A statement in JavaScript is a piece of code that performs an action. Statements can be as simple as a variable declaration or as complex as a function definition. Each statement typically ends with a semicolon (`;`).",
+          "Examples of JavaScript statements include variable declarations, function calls, control flow statements, and more."
+        ]
+      },
+      {
+        "pattern": "what is a variable declaration in javascript?|javascript variable declaration|define variable in javascript",
+        "responses": [
+          "A variable declaration in JavaScript is used to create a variable that can hold a value. You can declare variables using the `var`, `let`, or `const` keywords. For example:\n\n```javascript\nlet name = 'Alice';\nconst age = 30;\nvar isStudent = true;\n```"
+        ]
+      },
+      {
+        "pattern": "what is an if statement in javascript?|javascript if statement|define if statement",
+        "responses": [
+          "An `if` statement in JavaScript is used to execute a block of code based on a specified condition. If the condition evaluates to `true`, the code block will run. Here's an example:\n\n```javascript\nif (age >= 18) {\n    console.log('You are an adult.');\n} else {\n    console.log('You are a minor.');\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is a loop statement in javascript?|javascript loops|define loop in javascript",
+        "responses": [
+          "Loop statements in JavaScript allow you to execute a block of code repeatedly based on a condition. Common loop statements include `for`, `while`, and `do...while` loops. For example:\n\n```javascript\nfor (let i = 0; i < 5; i++) {\n    console.log(i);\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is a switch statement in javascript?|javascript switch statement|define switch statement",
+        "responses": [
+          "A `switch` statement in JavaScript is used to perform different actions based on different conditions. It evaluates an expression and matches it against multiple cases. Here's an example:\n\n```javascript\nswitch (fruit) {\n    case 'apple':\n        console.log('You chose an apple.');\n        break;\n    case 'banana':\n        console.log('You chose a banana.');\n        break;\n    default:\n        console.log('Unknown fruit.');\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is a function declaration in javascript?|javascript function declaration|define function in javascript",
+        "responses": [
+          "A function declaration in JavaScript defines a reusable block of code that can be executed when called. Functions can take parameters and return values. Here's an example:\n\n```javascript\nfunction add(a, b) {\n    return a + b;\n}\nconsole.log(add(5, 3));  // Output: 8\n```"
+        ]
+      },
+      {
+        "pattern": "what is a return statement in javascript?|javascript return statement|define return in javascript",
+        "responses": [
+          "A `return` statement in JavaScript is used to exit a function and optionally return a value to the caller. When a return statement is executed, the function stops running. For example:\n\n```javascript\nfunction multiply(a, b) {\n    return a * b;\n}\nlet result = multiply(4, 5);\nconsole.log(result);  // Output: 20\n```"
+        ]
+      },
+      {
+        "pattern": "what is javascript syntax?|javascript syntax rules|define javascript syntax",
+        "responses": [
+          "JavaScript syntax refers to the set of rules that define a correctly structured JavaScript program. It includes the way you write statements, declarations, expressions, and control structures.",
+          "Understanding JavaScript syntax is essential for writing valid code that the JavaScript engine can interpret."
+        ]
+      },
+      {
+        "pattern": "what are variables in javascript?|javascript variables|define variables in javascript",
+        "responses": [
+          "In JavaScript, variables are used to store data values. You can declare a variable using the keywords `var`, `let`, or `const`. The syntax for declaring a variable is as follows:\n\n```javascript\nlet variableName = value;\nconst constantName = value;\nvar oldVariableName = value;\n```"
+        ]
+      },
+      {
+        "pattern": "how to write a comment in javascript?|javascript comments|define comments in javascript",
+        "responses": [
+          "In JavaScript, you can write comments to explain your code or to prevent certain lines from executing. There are two types of comments:\n1. **Single-line comments**: Use `//` to comment out a single line.\n   ```javascript\n   // This is a single-line comment\n   ```\n2. **Multi-line comments**: Use `/*` to start and `*/` to end a multi-line comment.\n   ```javascript\n   /* This is a\n   multi-line comment */\n   ```"
+        ]
+      },
+      {
+        "pattern": "what is a function expression in javascript?|javascript function expression|define function expression",
+        "responses": [
+          "A function expression in JavaScript is a way to define a function as part of an expression. This function can be anonymous or named. Here's an example of an anonymous function expression:\n\n```javascript\nconst greet = function() {\n    console.log('Hello!');\n};\n```"
+        ]
+      },
+      {
+        "pattern": "what is an array in javascript?|javascript arrays|define arrays in javascript",
+        "responses": [
+          "An array in JavaScript is a special variable that can hold multiple values at once. Arrays are created using square brackets `[]`. Here's an example:\n\n```javascript\nlet fruits = ['apple', 'banana', 'orange'];\n``` You can access elements in an array using their index:\n```javascript\nconsole.log(fruits[0]); // Output: apple\n```"
+        ]
+      },
+      {
+        "pattern": "how to use operators in javascript?|javascript operators|define operators in javascript",
+        "responses": [
+          "Operators in JavaScript are special symbols that perform operations on variables and values. Common types of operators include:\n1. **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%` for mathematical calculations.\n2. **Assignment Operators**: `=`, `+=`, `-=`, etc., for assigning values.\n3. **Comparison Operators**: `==`, `===`, `!=`, `!==`, `<`, `>`, etc., for comparing values.\n4. **Logical Operators**: `&&`, `||`, `!` for logical operations."
+        ]
+      },
+      {
+        "pattern": "what is a block of code in javascript?|javascript code block|define block in javascript",
+        "responses": [
+          "A block of code in JavaScript is a group of statements enclosed in curly braces `{}`. Blocks are used to define the scope of variables and control structures. For example:\n\n```javascript\nif (true) {\n    let message = 'Hello, world!';\n    console.log(message);\n}\n``` The variable `message` is only accessible within the block."
+        ]
+      },
+      {
+        "pattern": "what are comments in javascript?|javascript comments|define comments in javascript",
+        "responses": [
+          "Comments in JavaScript are non-executable lines of code that are used to annotate or explain the code. They help make the code more understandable for developers and can be useful for temporarily disabling code during debugging."
+        ]
+      },
+      {
+        "pattern": "how to write a single-line comment in javascript?|javascript single-line comment|define single-line comment",
+        "responses": [
+          "In JavaScript, a single-line comment starts with `//`. Everything following `//` on that line will be treated as a comment and ignored by the JavaScript engine. For example:\n\n```javascript\n// This is a single-line comment\nlet x = 10; // This comment follows a statement\n```"
+        ]
+      },
+      {
+        "pattern": "how to write a multi-line comment in javascript?|javascript multi-line comment|define multi-line comment",
+        "responses": [
+          "A multi-line comment in JavaScript starts with `/*` and ends with `*/`. This type of comment can span multiple lines. For example:\n\n```javascript\n/* This is a multi-line comment\n   that spans multiple lines */\nlet y = 20;\n```"
+        ]
+      },
+      {
+        "pattern": "when should I use comments in javascript?|javascript comments usage|best practices for comments",
+        "responses": [
+          "You should use comments in JavaScript to:\n1. Explain complex code logic or algorithms.\n2. Provide context or reasoning for certain decisions in the code.\n3. Document the purpose of functions, classes, or modules.\n4. Temporarily disable code during testing or debugging.\n\nHowever, avoid over-commenting, as it can make the code cluttered. Aim for clarity in the code itself."
+        ]
+      },
+      {
+        "pattern": "can comments affect performance in javascript?|javascript comments performance|do comments slow down javascript",
+        "responses": [
+          "Comments do not affect the performance of JavaScript code execution since they are ignored by the JavaScript engine. However, excessive comments can make the code harder to read and maintain, so it's essential to strike a balance."
+        ]
+      },
+      {
+        "pattern": "what is a documentation comment in javascript?|javascript documentation comment|define documentation comment",
+        "responses": [
+          "Documentation comments are a special type of multi-line comment used to describe the purpose and usage of code elements such as functions, classes, or modules. They often follow a specific format and can be processed by documentation generation tools. For example:\n\n```javascript\n/**\n * Adds two numbers.\n * @param {number} a - The first number.\n * @param {number} b - The second number.\n * @returns {number} The sum of a and b.\n */\nfunction add(a, b) {\n    return a + b;\n}\n```"
+        ]
+      },
+        {
+      "pattern": "what are variables in javascript?|javascript variables|define variables in javascript",
+      "responses": [
+        "In JavaScript, variables are used to store data values. They act as containers for data that can be referenced and manipulated throughout your code."
+      ]
+    },
+    {
+      "pattern": "how to declare a variable in javascript?|javascript variable declaration|define variable declaration",
+      "responses": [
+        "You can declare a variable in JavaScript using three keywords: `var`, `let`, and `const`.\n1. **`var`**: Declares a variable that can be re-assigned and has a function scope.\n   ```javascript\n   var name = 'Alice';\n   ```\n2. **`let`**: Declares a block-scoped variable that can be re-assigned.\n   ```javascript\n   let age = 30;\n   ```\n3. **`const`**: Declares a block-scoped variable that cannot be re-assigned (constant).\n   ```javascript\n   const PI = 3.14;\n   ```"
+      ]
+    },
+    {
+      "pattern": "what is the difference between var, let, and const?|javascript variable keywords|var vs let vs const",
+      "responses": [
+        "`var`, `let`, and `const` are used to declare variables, but they have different scopes and behaviors:\n1. **`var`**: Function-scoped or globally-scoped, can be re-declared and updated.\n2. **`let`**: Block-scoped, can be updated but not re-declared in the same scope.\n3. **`const`**: Block-scoped, cannot be updated or re-declared. It must be initialized at the time of declaration."
+      ]
+    },
+    {
+      "pattern": "what are data types in javascript?|javascript data types|define javascript data types",
+      "responses": [
+        "JavaScript variables can hold different types of data, including:\n1. **Primitive Types**:\n   - `string`: Represents text.\n   - `number`: Represents numeric values.\n   - `boolean`: Represents `true` or `false`.\n   - `null`: Represents the absence of value.\n   - `undefined`: Represents a variable that has been declared but not assigned a value.\n   - `symbol`: Represents a unique identifier.\n   - `bigint`: Represents integers with arbitrary precision.\n2. **Reference Types**:\n   - `object`: A collection of key-value pairs.\n   - `array`: A special type of object for storing ordered collections."
+      ]
+    },
+    {
+      "pattern": "what is variable scope in javascript?|javascript variable scope|define variable scope",
+      "responses": [
+        "Variable scope refers to the accessibility of a variable in different parts of your code. In JavaScript, there are three types of scope:\n1. **Global Scope**: Variables declared outside any function or block are accessible anywhere in the code.\n2. **Function Scope**: Variables declared within a function are only accessible within that function.\n3. **Block Scope**: Variables declared with `let` or `const` within a block (e.g., inside `{}`) are only accessible within that block."
+      ]
+    },
+    {
+      "pattern": "how to use variables in javascript?|javascript variable usage|define variable usage",
+      "responses": [
+        "To use a variable in JavaScript, you first declare it and then assign a value to it. You can then reference the variable throughout your code. For example:\n\n```javascript\nlet score = 100;\nconsole.log(score); // Output: 100\nscore += 50;\nconsole.log(score); // Output: 150\n``` You can also use variables in expressions, function calls, and more."
+      ]
+    },
+    {
+        "pattern": "can I change the value of a variable in javascript?|javascript variable reassignment|define variable reassignment",
+        "responses": [
+          "Yes, you can change the value of a variable in JavaScript, but it depends on how it was declared:\n- Variables declared with `var` and `let` can be reassigned:\n  ```javascript\n  let count = 1;\n  count = 2; // Now count is 2\n  ```\n- Variables declared with `const` cannot be reassigned:\n  ```javascript\n  const MAX_VALUE = 100;\n  // MAX_VALUE = 200; // This will throw an error\n  ``` However, if a `const` variable holds an object or array, you can modify the contents of that object or array."
+        ]
+      },
+      {
+        "pattern": "what is hoisting in javascript?|javascript hoisting|define hoisting",
+        "responses": [
+          "Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their containing scope during the compile phase. This means that you can use a variable before it has been declared:\n\n```javascript\nconsole.log(myVar); // Output: undefined\nvar myVar = 5;\n``` However, only the declaration is hoisted, not the initialization. Therefore, if you try to access a variable declared with `let` or `const` before its declaration, it will throw a ReferenceError."
+        ]
+      },
+      {
+        "pattern": "what is variable shadowing in javascript?|javascript variable shadowing|define variable shadowing",
+        "responses": [
+          "Variable shadowing occurs when a variable declared within a certain scope (like a function or block) has the same name as a variable in an outer scope. The inner variable 'shadows' the outer variable, making the outer variable inaccessible within the inner scope:\n\n```javascript\nlet x = 10;\nif (true) {\n    let x = 20; // This x shadows the outer x\n    console.log(x); // Output: 20\n}\nconsole.log(x); // Output: 10\n```"
+        ]
+      },
+      {
+        "pattern": "what are operators in javascript?|javascript operators|define operators in javascript|what is an operator in javascript",
+        "responses": [
+          "Operators in JavaScript are special symbols that perform operations on variables and values. They can be classified into several categories, including arithmetic, assignment, comparison, logical, and more."
+        ]
+      },
+      {
+        "pattern": "what are arithmetic operators in javascript?|javascript arithmetic operators|define arithmetic operators|arithmetic operations in javascript",
+        "responses": [
+          "Arithmetic operators are used to perform mathematical operations. The basic arithmetic operators in JavaScript include:\n1. `+` : Addition\n2. `-` : Subtraction\n3. `*` : Multiplication\n4. `/` : Division\n5. `%` : Modulus (remainder)\n6. `**` : Exponentiation\n\nExample:\n```javascript\nlet sum = 5 + 3; // 8\nlet product = 5 * 3; // 15\n```"
+        ]
+      },
+      {
+        "pattern": "what are comparison operators in javascript?|javascript comparison operators|define comparison operators|comparison operations in javascript",
+        "responses": [
+          "Comparison operators are used to compare two values. They return a Boolean value (`true` or `false`). The main comparison operators in JavaScript are:\n1. `==` : Equal to\n2. `===` : Strict equal to (checks value and type)\n3. `!=` : Not equal to\n4. `!==` : Strict not equal to\n5. `>` : Greater than\n6. `<` : Less than\n7. `>=` : Greater than or equal to\n8. `<=` : Less than or equal to\n\nExample:\n```javascript\nlet isEqual = (5 == '5'); // true\nlet isStrictEqual = (5 === '5'); // false\n```"
+        ]
+      },
+      {
+        "pattern": "what are logical operators in javascript?|javascript logical operators|define logical operators|logical operations in javascript",
+        "responses": [
+          "Logical operators are used to combine two or more Boolean expressions. The primary logical operators in JavaScript are:\n1. `&&` : Logical AND\n2. `||` : Logical OR\n3. `!` : Logical NOT\n\nExample:\n```javascript\nlet a = true;\nlet b = false;\nlet result = a && b; // false\n```"
+        ]
+      },
+      {
+        "pattern": "what are assignment operators in javascript?|javascript assignment operators|define assignment operators|assignment operations in javascript",
+        "responses": [
+          "Assignment operators are used to assign values to variables. The basic assignment operator is `=`. There are also compound assignment operators that combine assignment with another operation:\n1. `+=` : Addition assignment\n2. `-=` : Subtraction assignment\n3. `*=` : Multiplication assignment\n4. `/=` : Division assignment\n5. `%=` : Modulus assignment\n\nExample:\n```javascript\nlet x = 10;\nx += 5; // x is now 15\n```"
+        ]
+      },
+      {
+        "pattern": "what are unary operators in javascript?|javascript unary operators|define unary operators|unary operations in javascript",
+        "responses": [
+          "Unary operators are operators that operate on a single operand. Common unary operators in JavaScript include:\n1. `++` : Increment operator\n2. `--` : Decrement operator\n3. `+` : Unary plus (converts a variable to a number)\n4. `-` : Unary negation (negates a number)\n\nExample:\n```javascript\nlet count = 5;\ncount++; // count is now 6\n```"
+        ]
+      },
+      {
+        "pattern": "what are ternary operators in javascript?|javascript ternary operators|define ternary operators|ternary operations in javascript",
+        "responses": [
+          "The ternary operator is a shorthand for an `if-else` statement. It takes three operands and is often used for conditional assignments:\n\nSyntax:\n```javascript\ncondition ? expressionIfTrue : expressionIfFalse;\n```\nExample:\n```javascript\nlet age = 18;\nlet canVote = (age >= 18) ? 'Yes' : 'No'; // 'Yes'\n```"
+        ]
+      },
+        {
+      "pattern": "what are data types in javascript?|javascript data types|define javascript data types|what is a data type in javascript",
+      "responses": [
+        "JavaScript data types are the different types of values that can be stored and manipulated in a JavaScript program. The data types can be categorized into two main groups: primitive types and reference types."
+      ]
+    },
+    {
+      "pattern": "what are primitive data types in javascript?|javascript primitive data types|define primitive data types|types of primitive data types in javascript",
+      "responses": [
+        "Primitive data types are the most basic data types in JavaScript. They include:\n1. **String**: Represents a sequence of characters. Example: `let name = 'Alice';`\n2. **Number**: Represents numeric values, both integers and floating-point numbers. Example: `let age = 30;`\n3. **Boolean**: Represents a logical entity and can have two values: `true` or `false`. Example: `let isStudent = true;`\n4. **Null**: Represents the intentional absence of any object value. Example: `let value = null;`\n5. **Undefined**: Indicates that a variable has been declared but has not yet been assigned a value. Example: `let x;`\n6. **Symbol**: A unique and immutable value primarily used as object property keys. Example: `let sym = Symbol('description');`\n7. **BigInt**: Represents integers with arbitrary precision. Example: `let bigNumber = 1234567890123456789012345678901234567890n;`"
+      ]
+    },
+    {
+      "pattern": "what are reference data types in javascript?|javascript reference data types|define reference data types|types of reference data types in javascript",
+      "responses": [
+        "Reference data types are more complex data types that refer to objects. They include:\n1. **Object**: A collection of key-value pairs. Example: `let person = { name: 'Alice', age: 30 };`\n2. **Array**: A special type of object used for storing ordered collections. Example: `let fruits = ['apple', 'banana', 'cherry'];`\n3. **Function**: A block of code designed to perform a particular task. Functions are also objects in JavaScript. Example: `function greet() { return 'Hello'; }`\n4. **Date**: Represents dates and times. Example: `let today = new Date();`\n5. **RegExp**: Represents regular expressions for pattern matching in strings. Example: `let pattern = /abc/;`"
+      ]
+    },
+    {
+      "pattern": "how to check the data type in javascript?|check data type in javascript|javascript typeof operator|what is typeof operator in javascript",
+      "responses": [
+        "In JavaScript, you can check the data type of a variable using the `typeof` operator. It returns a string indicating the type of the unevaluated operand. Example:\n```javascript\nlet name = 'Alice';\nconsole.log(typeof name); // 'string'\n\nlet age = 30;\nconsole.log(typeof age); // 'number'\n\nlet isStudent = true;\nconsole.log(typeof isStudent); // 'boolean'\n\nlet value = null;\nconsole.log(typeof value); // 'object' (this is a known quirk)\n\nlet x;\nconsole.log(typeof x); // 'undefined'\n```"
+      ]
+    },
+    {
+      "pattern": "what is type coercion in javascript?|javascript type coercion|define type coercion|type conversion in javascript",
+      "responses": [
+        "Type coercion is the process of converting a value from one data type to another. JavaScript performs type coercion automatically in certain situations, such as during comparisons or when using operators. For example:\n```javascript\nlet result = '5' + 3; // '53' (string concatenation)\nlet sum = '5' - 3; // 2 (string is coerced to a number)\n```"
+      ]
+    }
+    ]
+  }

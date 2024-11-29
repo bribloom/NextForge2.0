@@ -1,26 +1,26 @@
 {
     "intents": [
       {
-        "pattern": "what is python|introduction to python|python programming",
+        "pattern": "what is python?|what is python|introduction to python|python programming",
         "responses": [
           "Python is a high-level, interpreted programming language known for its readability and simplicity. It was created by Guido van Rossum and first released in 1991.",
           "Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming."
         ]
       },
       {
-        "pattern": "what are the features of python|python features",
+        "pattern": "what are the features of python?|features of python|features of python?|python features",
         "responses": [
           "Some key features of Python include:\n1. **Easy to Learn**: Python has a simple syntax that is easy to learn for beginners.\n2. **Interpreted Language**: Python code is executed line by line, which makes debugging easier.\n3. **Dynamically Typed**: You don't need to declare the data type of a variable explicitly.\n4. **Extensive Libraries**: Python has a rich set of libraries and frameworks for various applications, such as web development, data analysis, and machine learning.\n5. **Cross-Platform**: Python can run on various platforms, including Windows, macOS, and Linux."
         ]
       },
       {
-        "pattern": "how to install python|python installation",
+        "pattern": "how to install python|how to install python?|install python|python install|python installation",
         "responses": [
           "To install Python, you can download the latest version from the official Python website at python.org. Choose the installer for your operating system and follow the installation instructions.\n\nAfter installation, you can verify it by running `python --version` or `python3 --version` in your command line or terminal."
         ]
       },
       {
-        "pattern": "how to write a simple python program|python simple program",
+        "pattern": "how to write a simple python program?|python simple program?",
         "responses": [
           "To write a simple Python program, you can use any text editor or an Integrated Development Environment (IDE) like PyCharm or VSCode. Here's an example of a simple program that prints 'Hello, World!':\n\n```python\nprint('Hello, World!')\n```",
           "You can save this code in a file with a `.py` extension and run it using the command `python filename.py`."
@@ -87,14 +87,14 @@
         ]
       },
       {
-        "pattern": "what is object-oriented programming in python|python oop",
+        "pattern": "what is object-oriented programming in python?|what is oop?|python oop",
         "responses": [
           "Object-oriented programming (OOP) in Python is a programming paradigm that organizes software design around objects and the interactions between them.",
           "OOP concepts in Python include classes, objects, inheritance, polymorphism, and encapsulation."
         ]
       },
       {
-        "pattern": "what are the advantages of python|python advantages",
+        "pattern": "what are the advantages of python?|python advantages",
         "responses": [
           "Some advantages of Python include:\n1. **Easy to Learn**: Python has a simple syntax that is easy to learn for beginners.\n2. **Fast Development**: Python's syntax and nature make it ideal for rapid prototyping and development.\n3. **Large Community**: Python has a vast and active community, which means there are many resources available.\n4. **Cross-Platform**: Python can run on various platforms, including Windows, macOS, and Linux."
         ]
@@ -140,7 +140,7 @@
         ]
       },
       {
-        "pattern": "what is a class in python|python classes",
+        "pattern": "what is a class in python?|python classes",
         "responses": [
           "In Python, a class is a blueprint for creating objects. Classes encapsulate data for the object and methods to manipulate that data. Here's an example:\n```python\nclass Dog:\n    def __init__(self, name):\n        self.name = name\n    def bark(self):\n        return 'Woof!'\n```",
           "You can create an instance of the class by calling it: `my_dog = Dog('Buddy')`."

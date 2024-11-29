@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import javaResponses from './javaresponses.json'; // Adjust the path if necessary
 import pythonResponses from './pythonresponses.json'; // Adjust the path if necessary
+import jsResponses from './jsresponses.json' 
+import { Banner } from "@/components/banner";
+
 
 const Chatbot: React.FC = () => {
   const [userInput, setUserInput] = useState('');
-  const [chatHistory, setChatHistory] = useState<{ user: string; bot: string }[]>([]);
-  const [language, setLanguage] = useState('java'); // Default language
+  const [chatHistory, setChatHistory] = useState<{ user: string; bot: string | React.ReactNode }[]>([]);  const [language, setLanguage] = useState('java'); // Default  and change to fix error for red color
   const [responsesData, setResponsesData] = useState(javaResponses); // Set initial responses
 
   useEffect(() => {
@@ -16,11 +18,17 @@ const Chatbot: React.FC = () => {
       setResponsesData(javaResponses);
     } else if (language === 'python') {
       setResponsesData(pythonResponses);
+    } else if (language === 'javascript') {
+      setResponsesData(jsResponses);
     }
+    console.log(`Responses updated to: ${language}`, responsesData); // Debugging line
   }, [language]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(event.target.value);
+  };
+  const handleClearChat = () => {
+    setChatHistory([]); // Clear the chat history
   };
 
   const handleSendMessage = () => {
@@ -30,7 +38,6 @@ const Chatbot: React.FC = () => {
     setChatHistory([...chatHistory, { user: userMessage, bot: botResponse }]);
     setUserInput('');
   };
-
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault(); // Prevent the default behavior of the Enter key (like form submission)
@@ -40,15 +47,21 @@ const Chatbot: React.FC = () => {
 
   const getBotResponse = (message: string) => {
     // Use regex to match the intent patterns
-    const intent = responsesData.intents.find((intent) => 
-      new RegExp(`${intent.pattern.replace('?', '\\?')}\\??`, 'i').test(message)
-  );
+    const intent = responsesData.intents.find((intent) => {
+      const regex = new RegExp(`${intent.pattern.replace('?', '\\?')}\\??`, 'i');
+      console.log(`Checking pattern: ${intent.pattern}, against message: ${message}, result: ${regex.test(message)}`); // Debugging line
+      return regex.test(message);
+    });
 
     if (intent) {
       const responses = intent.responses;
       return responses[Math.floor(Math.random() * responses.length)];
     }
-    return "Sorry, I didn't understand that.";
+    return (
+      <div style={{ color: 'red' }}>
+        Thank you for your inquiry. However, I must inform you that my current dataset is limited, and I do not have the information necessary to address your specific prompt at this time.
+      </div>
+    );  
   };
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -56,8 +69,16 @@ const Chatbot: React.FC = () => {
   };
 
   return (
+    <div>
+         <div className="font-semibold mb-5">
+            <Banner
+                variant={"success"}
+                label="Reminder: Our Next chatbot's capabilities are currently limited by its dataset. We appreciate your understanding as we work to improve its responses!"
+                />
+            </div>
+   
     <div className="max-w-lg mx-auto p-6 border rounded-lg shadow-md bg-white">
-      <h1 className="text-2xl font-bold text-center mb-4 text-black">NextAI Chatbot</h1>
+      <h1 className="text-2xl font-bold text-center mb-4 text-black">Next Chatbot</h1>
       
       {/* Language Selector */}
       <div className="mb-4">
@@ -70,6 +91,7 @@ const Chatbot: React.FC = () => {
         >
           <option value="java">Java</option>
           <option value="python">Python</option>
+          <option value="javascript">Javascript</option>
         </select>
       </div>
 
@@ -80,7 +102,7 @@ const Chatbot: React.FC = () => {
               <strong>You:</strong> {chat.user}
             </div>
             <div className="text-green-600">
-              <strong>NextAI:</strong> {chat.bot}
+              <strong>NextBot:</strong> {chat.bot}
             </div>
           </div>
         ))}
@@ -92,15 +114,22 @@ const Chatbot: React.FC = () => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown} // This line attaches the handleKeyDown function
           placeholder="Type your message..."
-          className="flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
         <button 
           onClick={handleSendMessage} 
-          className="bg-blue-500 text-white p-2 rounded-r-lg hover:bg-blue-600 transition"
+          className="bg-emerald-500 text-white p-2 rounded-r-lg hover:bg-emerald-700 transition"
         >
           Send
         </button>
       </div>
+      <button
+        onClick={handleClearChat}
+        className="w-full bg-red-500 mt-5 text-white p-2 rounded-2xl hover:bg-red-600 transition"
+      >
+        Clear Chat
+      </button>
+    </div>
     </div>
   );
 };
