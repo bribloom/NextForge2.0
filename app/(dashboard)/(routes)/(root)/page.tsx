@@ -1,5 +1,6 @@
 import { getDashboardCourses } from "@/actions/get-dashboard-courses";
 import { getCourseRecommendations } from "@/actions/recommendation-algorithm"; // Import the recommendation algorithm
+import { Banner } from "@/components/banner";
 import { CoursesList } from "@/components/courses-list";
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
@@ -26,15 +27,26 @@ export default async function Dashboard() {
     console.log("Recommended Courses:", recommendedCourses); // Log recommended courses
 
     return (
-        <div className="p-6 space-y-4">
-            <h2 className="text-xl font-semibold">Courses In Progress</h2>
-            <CoursesList items={coursesInProgress} />
+        <div>
+            <div className="font-semibold mt-1">
 
-            <h2 className="text-xl font-semibold">Completed Courses</h2>
-            <CoursesList items={completedCourses} />
+            {completedCourses.length === 0 && coursesInProgress.length === 0 && (
+                <Banner
+                    variant="warning"
+                    label="You currently have no courses. Go to 'Find Course' to enroll in new courses!"
+                />
+            )}
+            <div className="p-6 space-y-4">
+                <h2 className="text-xl font-semibold">Courses In Progress</h2>
+                <CoursesList items={coursesInProgress} />
 
-            <h2 className="text-xl font-semibold">Recommended Courses</h2>
-            <CoursesList items={recommendedCourses} />
-        </div>
+                <h2 className="text-xl font-semibold">Completed Courses</h2>
+                <CoursesList items={completedCourses} />
+
+                <h2 className="text-xl font-semibold">Recommended Courses</h2>
+                <CoursesList items={recommendedCourses} />
+             </div>
+         </div>
+         </div>
     );
 }

@@ -32,8 +32,8 @@ const Chatbot: React.FC = () => {
     // Define FAQ
     const faqList = [
       { question: "What is Java?", pattern: "What is Java?" },
-      { question: "How do I install Python?", pattern: "How do I install Python?" },
-      { question: "What is JavaScript used for?", pattern: "What is JavaScript used for?" },
+      { question: "what are the four principles of oops?", pattern: "what are the four principles of oops?" },
+      { question: "What is oop?", pattern: "what is oop?" },
       
     ];
     // Randomly select FAQs

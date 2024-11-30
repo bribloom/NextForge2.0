@@ -51,7 +51,7 @@
         ]
       },    
       {
-        "pattern": "what are the four principles of oops|four principles of oops|4 principles of oop",
+        "pattern": "what are the four principles of oops|what are the four principles of oops?|four principles of oops|4 principles of oop",
         "responses": [
           "The four main principles of OOP are Encapsulation, Abstraction, Inheritance, and Polymorphism.",
           "These principles help in organizing code in a modular and reusable way."
