@@ -72,7 +72,7 @@ const CourseLayout = async({
                 />
             </div>
             
-            <main className="md:pl-80 pt-[80px] h-full bg-neutral-800"> 
+            <main className="md:pl-80 pt-[80px] min-h-full bg-neutral-800"> 
             {children}
             </main>
         </div>
