@@ -2,13 +2,14 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Logo } from '../(dashboard)/_components/logohome';
 
 const NextForge = () => {
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-b bg-neutral-900 text-white">
             {/* Hero Section */}
             <header className="flex flex-col items-center justify-center flex-grow py-20 text-center">
-                <h1 className="text-5xl font-bold mb-4">Welcome to NextForge</h1>
+            <Logo />
                 <p className="text-lg mb-8">Unlock your potential with our comprehensive courses and resources.</p>
                 <div className="flex space-x-4">
                     <Link href="/sign-in">
@@ -44,7 +45,18 @@ const NextForge = () => {
                     </div>
                 </div>
             </section>
-
+                    {/* About Us Section */}
+                    <section className="py-20 bg-neutral-800 text-white">
+                                    <div className="max-w-6xl mx-auto px-4 text-center">
+                                        <h2 className="text-4xl font-bold mb-8">About Us</h2>
+                                        <p className="text-lg mb-4">
+                                            NextForge is a project developed as part of our thesis. 
+                                            Our aim is to provide a comprehensive platform for 2nd Year Computer Science learners to enhance their skills through 
+                                            a variety of courses and resources.
+                                        </p>
+                                      
+                                    </div>
+                                </section>
             {/* Footer Section */}
             <footer className="py-10 bg-neutral-900 text-center">
                 <p className="text-sm">© {new Date().getFullYear()} Nextforge. All rights reserved.</p>
