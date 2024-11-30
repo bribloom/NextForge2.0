@@ -1,0 +1,440 @@
+{
+    "intents": [
+      {
+        "pattern": "what is csharp?|what is csharp|introduction to csharp|csharp programming",
+        "responses": [
+          "Csharp (pronounced 'C-Sharp') is a modern, object-oriented programming language developed by Microsoft. It is widely used for building desktop applications, web applications, and games using the .NET framework.",
+          "Csharp is a versatile language designed for developing applications ranging from simple utilities to complex systems. It was introduced in 2000 as part of the .NET initiative."
+        ]
+      },
+      {
+        "pattern": "what are the features of csharp?|features of csharp|csharp features",
+        "responses": [
+          "Some key features of Csharp include:\n1. Object-Oriented Programming: Csharp supports OOP principles like inheritance, encapsulation, and polymorphism.\n2. Strongly Typed: Variables and expressions have specific types, ensuring type safety.\n3. Garbage Collection: Automatic memory management to prevent memory leaks.\n4. LINQ (Language Integrated Query): Enables querying data from different sources.\n5. Platform Independence: Runs on various platforms via the .NET framework or .NET Core."
+        ]
+      },
+      {
+        "pattern": "how do I install csharp?|installing csharp|csharp installation",
+        "responses": [
+          "To start using Csharp, you can install Visual Studio (Community Edition is free) or Visual Studio Code along with the .NET SDK. The .NET SDK provides the tools and runtime necessary to develop and run Csharp applications.",
+          "For Csharp development, download and install the .NET SDK from Microsoft's official website. You can also use Visual Studio for a more integrated development environment."
+        ]
+      },
+      {
+        "pattern": "what is a csharp class?|csharp class",
+        "responses": [
+          "In Csharp, a class is a blueprint for creating objects. It defines the properties and methods that objects of the class will have. For example:\n\n```csharp\npublic class Person {\n    public string Name { get; set; }\n    public int Age { get; set; }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to create a method in csharp?|csharp method",
+        "responses": [
+          "To create a method in Csharp, define it inside a class using a return type and optional parameters. Here's an example:\n\n```csharp\npublic class Calculator {\n    public int Add(int a, int b) {\n        return a + b;\n    }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is an object in csharp?|csharp object",
+        "responses": [
+          "An object in Csharp is an instance of a class. It represents a specific implementation of the class, containing its own data and behavior. For example:\n\n```csharp\nPerson person = new Person { Name = \"Alice\", Age = 30 };\n```"
+        ]
+      },
+      {
+        "pattern": "what is the difference between value and reference types in csharp?|csharp value vs reference types",
+        "responses": [
+          "In Csharp, value types (e.g., int, double) store data directly, while reference types (e.g., objects, strings) store references to memory locations. Changes to a value type variable don't affect other variables, whereas changes to a reference type can affect other variables referencing the same object."
+        ]
+      },
+      {
+        "pattern": "tell me about csharp?|give me an overview of csharp|csharp overview|csharp introduction",
+        "responses": [
+          "Csharp is a general-purpose, object-oriented programming language created by Microsoft. It is part of the .NET ecosystem and is known for its simplicity, robustness, and scalability. It is commonly used for web applications, desktop software, and game development.",
+          "Csharp is a popular language among developers for its extensive libraries, strong community support, and integration with Microsoft technologies like Azure and Windows."
+        ]
+      },
+      {
+        "pattern": "what can I do with csharp?|uses of csharp|csharp applications",
+        "responses": [
+          "Csharp can be used for a wide range of applications, including:\n1. Web Development: Using frameworks like ASP.NET.\n2. Desktop Applications: Building applications for Windows.\n3. Game Development: Creating games with Unity.\n4. Mobile Development: Building cross-platform apps using Xamarin.\n5. Cloud Computing: Developing cloud-based solutions with Azure."
+        ]
+      },
+      {
+        "pattern": "who created csharp?|history of csharp|csharp origin",
+        "responses": [
+          "Csharp was developed by Microsoft, led by Anders Hejlsberg, and was first released in 2000 as part of the .NET framework. It was designed to be simple, modern, and object-oriented."
+        ]
+      },
+      {
+        "pattern": "what is the syntax of csharp?|csharp syntax|csharp code structure",
+        "responses": [
+          "Csharp syntax is similar to other C-based languages. Here's a basic example of a Csharp program structure:\n\n```csharp\nusing System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine(\"Hello, World!\");\n    }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is exception handling in csharp?|csharp exception handling",
+        "responses": [
+          "Exception handling in Csharp allows you to manage runtime errors gracefully using try, catch, and finally blocks. For example:\n\n```csharp\ntry {\n    int result = 10 / 0;\n} catch (DivideByZeroException ex) {\n    Console.WriteLine(\"Cannot divide by zero.\");\n} finally {\n    Console.WriteLine(\"End of operation.\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is csharp syntax?|csharp syntax|syntax of csharp|csharp code structure",
+        "responses": [
+          "Csharp syntax is the set of rules for writing programs in Csharp. It defines how code is structured, from namespaces and classes to methods and statements. A simple Csharp program looks like this:\n\n```csharp\nusing System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine(\"Hello, World!\");\n    }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to declare a variable in csharp?|csharp variable declaration",
+        "responses": [
+          "Variables in Csharp are declared with a type followed by the variable name. Here's an example:\n\n```csharp\nint age = 25;\nstring name = \"John\";\nbool isActive = true;\n```"
+        ]
+      },
+      {
+        "pattern": "how to write an if statement in csharp?|csharp if statement|conditional statements in csharp",
+        "responses": [
+          "The `if` statement in Csharp executes a block of code based on a condition. Example:\n\n```csharp\nint number = 10;\nif (number > 5) {\n    Console.WriteLine(\"Number is greater than 5\");\n} else {\n    Console.WriteLine(\"Number is 5 or less\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to write a loop in csharp?|csharp loops|for loop in csharp",
+        "responses": [
+          "Csharp supports various types of loops. Here's an example of a `for` loop:\n\n```csharp\nfor (int i = 0; i < 5; i++) {\n    Console.WriteLine($\"Iteration {i}\");\n}\n```\nYou can also use `while` and `foreach` loops for iterative tasks."
+        ]
+      },
+      {
+        "pattern": "how to declare a class in csharp?|csharp class declaration",
+        "responses": [
+          "A class in Csharp is declared using the `class` keyword. Here's an example:\n\n```csharp\npublic class Person {\n    public string Name { get; set; }\n    public int Age { get; set; }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to write a method in csharp?|csharp method declaration",
+        "responses": [
+          "A method in Csharp is a block of code that performs a specific task. Example:\n\n```csharp\npublic int Add(int a, int b) {\n    return a + b;\n}\n```\nYou can call this method using:\n```csharp\nConsole.WriteLine(Add(3, 5));\n```"
+        ]
+      },
+      {
+        "pattern": "how to handle exceptions in csharp?|csharp exception handling",
+        "responses": [
+          "Csharp uses `try`, `catch`, and `finally` blocks for exception handling. Example:\n\n```csharp\ntry {\n    int result = 10 / 0;\n} catch (DivideByZeroException ex) {\n    Console.WriteLine(\"Cannot divide by zero.\");\n} finally {\n    Console.WriteLine(\"Operation completed.\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to define a namespace in csharp?|csharp namespace",
+        "responses": [
+          "Namespaces in Csharp organize classes and methods to avoid naming conflicts. Example:\n\n```csharp\nnamespace MyApplication {\n    class Program {\n        static void Main() {\n            Console.WriteLine(\"Hello from a namespace!\");\n        }\n    }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to declare an array in csharp?|csharp array declaration",
+        "responses": [
+          "Arrays in Csharp are declared using the `[]` syntax. Example:\n\n```csharp\nint[] numbers = { 1, 2, 3, 4, 5 };\nforeach (int number in numbers) {\n    Console.WriteLine(number);\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to use properties in csharp?|csharp properties",
+        "responses": [
+          "Properties in Csharp provide a way to get and set values of a class. Example:\n\n```csharp\npublic class Person {\n    public string Name { get; set; }\n    public int Age { get; set; }\n}\n\nPerson person = new Person { Name = \"Alice\", Age = 30 };\nConsole.WriteLine(person.Name);\n```"
+        ]
+      },
+      {
+        "pattern": "what are csharp data types?|csharp data types|list of data types in csharp",
+        "responses": [
+          "Csharp has a rich set of data types categorized into value types, reference types, and nullable types. Examples include:\n\n**Value Types:**\n- int, double, float, char, bool\n\n**Reference Types:**\n- string, object, dynamic\n\n**Nullable Types:**\n- int?, double?, bool?\n\nExample:\n```csharp\nint age = 25;\ndouble price = 99.99;\nstring name = \"John\";\n```"
+        ]
+      },
+      {
+        "pattern": "what is an int in csharp?|csharp int|integer data type in csharp",
+        "responses": [
+          "The `int` data type in Csharp represents a 32-bit signed integer. Example:\n\n```csharp\nint age = 30;\nConsole.WriteLine(age);\n```"
+        ]
+      },
+      {
+        "pattern": "what is a double in csharp?|csharp double|floating-point numbers in csharp",
+        "responses": [
+          "The `double` data type in Csharp represents a double-precision floating-point number. Example:\n\n```csharp\ndouble pi = 3.14159;\nConsole.WriteLine(pi);\n```"
+        ]
+      },
+      {
+        "pattern": "what is a string in csharp?|csharp string|text data type in csharp",
+        "responses": [
+          "The `string` data type in Csharp represents a sequence of characters. Example:\n\n```csharp\nstring greeting = \"Hello, World!\";\nConsole.WriteLine(greeting);\n```"
+        ]
+      },
+      {
+        "pattern": "what is a bool in csharp?|csharp bool|boolean data type in csharp",
+        "responses": [
+          "The `bool` data type in Csharp represents a boolean value (true or false). Example:\n\n```csharp\nbool isActive = true;\nConsole.WriteLine(isActive);\n```"
+        ]
+      },
+      {
+        "pattern": "what is a char in csharp?|csharp char|character data type in csharp",
+        "responses": [
+          "The `char` data type in Csharp represents a single 16-bit Unicode character. Example:\n\n```csharp\nchar grade = 'A';\nConsole.WriteLine(grade);\n```"
+        ]
+      },
+      {
+        "pattern": "what is a decimal in csharp?|csharp decimal|high-precision numbers in csharp",
+        "responses": [
+          "The `decimal` data type in Csharp is used for financial and monetary calculations requiring high precision. Example:\n\n```csharp\ndecimal amount = 12345.67m;\nConsole.WriteLine(amount);\n```"
+        ]
+      },
+      {
+        "pattern": "what is an object in csharp?|csharp object data type",
+        "responses": [
+          "The `object` data type in Csharp is the base type from which all other types derive. It can hold any data type. Example:\n\n```csharp\nobject data = 42;\nConsole.WriteLine(data);\ndata = \"Hello\";\nConsole.WriteLine(data);\n```"
+        ]
+      },
+      {
+        "pattern": "what is a dynamic in csharp?|csharp dynamic data type",
+        "responses": [
+          "The `dynamic` data type in Csharp allows variables to hold any type of value, with type checking at runtime. Example:\n\n```csharp\ndynamic data = 42;\ndata = \"Hello, World!\";\nConsole.WriteLine(data);\n```"
+        ]
+      },
+      {
+        "pattern": "what are nullable types in csharp?|csharp nullable types|nullable data types",
+        "responses": [
+          "Nullable types in Csharp allow value types to hold null. They are declared using `?`. Example:\n\n```csharp\nint? age = null;\nif (age.HasValue) {\n    Console.WriteLine($\"Age: {age.Value}\");\n} else {\n    Console.WriteLine(\"Age is null.\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what are csharp operators?|list of operators in csharp|csharp operators",
+        "responses": [
+          "Csharp provides a variety of operators, categorized as:\n\n**1. Arithmetic Operators:** +, -, *, /, %\n**2. Relational Operators:** ==, !=, >, <, >=, <=\n**3. Logical Operators:** &&, ||, !\n**4. Bitwise Operators:** &, |, ^, ~, <<, >>\n**5. Assignment Operators:** =, +=, -=, *=, /=, %=\n**6. Unary Operators:** +, -, ++, --, !\n\nExample of Arithmetic Operators:\n```csharp\nint sum = 5 + 3;\nConsole.WriteLine(sum); // Outputs: 8\n```"
+        ]
+      },
+      {
+        "pattern": "what are arithmetic operators in csharp?|csharp arithmetic operators",
+        "responses": [
+          "Arithmetic operators in Csharp are used for mathematical operations:\n\n- `+`: Addition\n- `-`: Subtraction\n- `*`: Multiplication\n- `/`: Division\n- `%`: Modulus (remainder)\n\nExample:\n```csharp\nint result = 10 % 3;\nConsole.WriteLine(result); // Outputs: 1\n```"
+        ]
+      },
+      {
+        "pattern": "what are relational operators in csharp?|csharp relational operators",
+        "responses": [
+          "Relational operators in Csharp are used to compare two values:\n\n- `==`: Equal to\n- `!=`: Not equal to\n- `>`: Greater than\n- `<`: Less than\n- `>=`: Greater than or equal to\n- `<=`: Less than or equal to\n\nExample:\n```csharp\nint a = 5, b = 10;\nConsole.WriteLine(a < b); // Outputs: True\n```"
+        ]
+      },
+      {
+        "pattern": "what are logical operators in csharp?|csharp logical operators",
+        "responses": [
+          "Logical operators in Csharp are used for combining conditional statements:\n\n- `&&`: Logical AND\n- `||`: Logical OR\n- `!`: Logical NOT\n\nExample:\n```csharp\nbool result = (5 > 3) && (10 > 5);\nConsole.WriteLine(result); // Outputs: True\n```"
+        ]
+      },
+      {
+        "pattern": "what are assignment operators in csharp?|csharp assignment operators",
+        "responses": [
+          "Assignment operators in Csharp are used to assign values to variables:\n\n- `=`: Assign\n- `+=`: Add and assign\n- `-=`: Subtract and assign\n- `*=`: Multiply and assign\n- `/=`: Divide and assign\n- `%=`: Modulus and assign\n\nExample:\n```csharp\nint x = 5;\nx += 3; // Equivalent to x = x + 3;\nConsole.WriteLine(x); // Outputs: 8\n```"
+        ]
+      },
+      {
+        "pattern": "what are unary operators in csharp?|csharp unary operators",
+        "responses": [
+          "Unary operators in Csharp operate on a single operand:\n\n- `+`: Unary plus\n- `-`: Unary minus\n- `++`: Increment\n- `--`: Decrement\n- `!`: Logical NOT\n\nExample:\n```csharp\nint a = 5;\na++;\nConsole.WriteLine(a); // Outputs: 6\n```"
+        ]
+      },
+      {
+        "pattern": "what are bitwise operators in csharp?|csharp bitwise operators",
+        "responses": [
+          "Bitwise operators in Csharp operate on binary representations of numbers:\n\n- `&`: AND\n- `|`: OR\n- `^`: XOR\n- `~`: Complement\n- `<<`: Left shift\n- `>>`: Right shift\n\nExample:\n```csharp\nint a = 5; // Binary: 0101\nint b = 3; // Binary: 0011\nConsole.WriteLine(a & b); // Outputs: 1 (Binary: 0001)\n```"
+        ]
+      },
+      {
+        "pattern": "what is the difference between == and === in csharp?|csharp equality operators",
+        "responses": [
+          "In Csharp, there is no `===` operator. Instead, you use `==` for equality comparisons. For reference types, the `Equals` method is often used to check value equality instead of reference equality."
+        ]
+      },
+      {
+        "pattern": "how to use the ternary operator in csharp?|csharp ternary operator",
+        "responses": [
+          "The ternary operator in Csharp is a shorthand for `if-else` statements. Syntax:\n\n```csharp\ncondition ? expression1 : expression2;\n```\n\nExample:\n```csharp\nint number = 10;\nstring result = number > 5 ? \"Greater\" : \"Smaller\";\nConsole.WriteLine(result); // Outputs: Greater\n```"
+        ]
+      },
+      {
+        "pattern": "how to use null-coalescing operators in csharp?|csharp null-coalescing operators",
+        "responses": [
+          "Csharp has two null-coalescing operators:\n\n- `??`: Provides a default value if the left-hand operand is null.\n- `??=`: Assigns the value only if the left-hand operand is null.\n\nExample:\n```csharp\nstring name = null;\nstring displayName = name ?? \"Default Name\";\nConsole.WriteLine(displayName); // Outputs: Default Name\n```"
+        ]
+      },
+      {
+        "pattern": "what are loops in csharp?|csharp loops|list of loops in csharp",
+        "responses": [
+          "Loops in Csharp are used to execute a block of code repeatedly. The main types of loops are:\n\n1. **for Loop**\n2. **while Loop**\n3. **do-while Loop**\n4. **foreach Loop**\n\nExample:\n```csharp\nfor (int i = 0; i < 5; i++) {\n    Console.WriteLine(i);\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is a for loop in csharp?|csharp for loop|example of for loop in csharp",
+        "responses": [
+          "The `for` loop in Csharp is used when you know the exact number of iterations. Example:\n\n```csharp\nfor (int i = 0; i < 5; i++) {\n    Console.WriteLine(i);\n}\n// Output: 0, 1, 2, 3, 4\n```"
+        ]
+      },
+      {
+        "pattern": "what is a while loop in csharp?|csharp while loop|example of while loop in csharp",
+        "responses": [
+          "The `while` loop in Csharp executes a block of code as long as a specified condition is true. Example:\n\n```csharp\nint i = 0;\nwhile (i < 5) {\n    Console.WriteLine(i);\n    i++;\n}\n// Output: 0, 1, 2, 3, 4\n```"
+        ]
+      },
+      {
+        "pattern": "what is a do-while loop in csharp?|csharp do-while loop|example of do-while loop in csharp",
+        "responses": [
+          "The `do-while` loop in Csharp executes a block of code at least once, then repeats the loop as long as the condition is true. Example:\n\n```csharp\nint i = 0;\ndo {\n    Console.WriteLine(i);\n    i++;\n} while (i < 5);\n// Output: 0, 1, 2, 3, 4\n```"
+        ]
+      },
+      {
+        "pattern": "what is a foreach loop in csharp?|csharp foreach loop|example of foreach loop in csharp",
+        "responses": [
+          "The `foreach` loop in Csharp is used to iterate through elements in a collection or array. Example:\n\n```csharp\nint[] numbers = { 1, 2, 3, 4, 5 };\nforeach (int num in numbers) {\n    Console.WriteLine(num);\n}\n// Output: 1, 2, 3, 4, 5\n```"
+        ]
+      },
+      {
+        "pattern": "when to use for loop in csharp?|csharp for loop use cases",
+        "responses": [
+          "Use the `for` loop in Csharp when you know the number of iterations in advance, or when you need to control the loop variable precisely. Example:\n\n```csharp\nfor (int i = 0; i < 10; i++) {\n    Console.WriteLine($\"Count: {i}\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "when to use while loop in csharp?|csharp while loop use cases",
+        "responses": [
+          "Use the `while` loop in Csharp when you want to repeat a block of code as long as a condition remains true, but the number of iterations is not known beforehand. Example:\n\n```csharp\nint total = 0;\nwhile (total < 100) {\n    total += 10;\n    Console.WriteLine(total);\n}\n```"
+        ]
+      },
+      {
+        "pattern": "when to use do-while loop in csharp?|csharp do-while loop use cases",
+        "responses": [
+          "Use the `do-while` loop in Csharp when you need to ensure that the loop runs at least once, regardless of the condition. Example:\n\n```csharp\nint num = 0;\ndo {\n    Console.WriteLine(\"Enter a positive number:\");\n    num = Convert.ToInt32(Console.ReadLine());\n} while (num <= 0);\n```"
+        ]
+      },
+      {
+        "pattern": "when to use foreach loop in csharp?|csharp foreach loop use cases",
+        "responses": [
+          "Use the `foreach` loop in Csharp to iterate over elements in collections or arrays, especially when you do not need to manage the loop index. Example:\n\n```csharp\nstring[] fruits = { \"Apple\", \"Banana\", \"Cherry\" };\nforeach (string fruit in fruits) {\n    Console.WriteLine(fruit);\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to exit a loop in csharp?|breaking a loop in csharp|exit loop example in csharp",
+        "responses": [
+          "You can use the `break` statement in Csharp to exit a loop prematurely. Example:\n\n```csharp\nfor (int i = 0; i < 10; i++) {\n    if (i == 5) {\n        break;\n    }\n    Console.WriteLine(i);\n}\n// Output: 0, 1, 2, 3, 4\n```"
+        ]
+      },
+      {
+        "pattern": "what are methods in csharp?|csharp methods|define methods in csharp",
+        "responses": [
+          "Methods in Csharp are blocks of code that perform a specific task and can be called when needed. They help in organizing code and promoting reusability. Example:\n\n```csharp\nvoid Greet() {\n    Console.WriteLine(\"Hello, World!\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to create a method in csharp?|csharp method creation|example of method in csharp",
+        "responses": [
+          "To create a method in Csharp, define it using the following structure:\n\n```csharp\nreturnType MethodName(parameters) {\n    // Method body\n}\n```\n\nExample:\n```csharp\nint Add(int a, int b) {\n    return a + b;\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what are return types in csharp methods?|csharp method return types",
+        "responses": [
+          "The return type of a method in Csharp specifies the type of value the method will return. Common return types include `int`, `string`, `bool`, and `void` (no return value). Example:\n\n```csharp\nint Multiply(int a, int b) {\n    return a * b;\n}\n```\nIf no value is returned, use `void`:\n\n```csharp\nvoid DisplayMessage() {\n    Console.WriteLine(\"Hello!\");\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what are parameters in csharp methods?|csharp method parameters|passing parameters to methods in csharp",
+        "responses": [
+          "Parameters in Csharp methods allow you to pass values to the method when calling it. Example:\n\n```csharp\nvoid Greet(string name) {\n    Console.WriteLine($\"Hello, {name}!\");\n}\nGreet(\"Alice\"); // Output: Hello, Alice!\n```"
+        ]
+      },
+      {
+        "pattern": "how to call a method in csharp?|calling methods in csharp|invoke a method in csharp",
+        "responses": [
+          "To call a method in Csharp, use its name followed by parentheses and pass any required arguments. Example:\n\n```csharp\nvoid SayHello() {\n    Console.WriteLine(\"Hello!\");\n}\n\nSayHello(); // Calls the method\n```"
+        ]
+      },
+      {
+        "pattern": "what is method overloading in csharp?|csharp method overloading|examples of method overloading",
+        "responses": [
+          "Method overloading in Csharp allows you to define multiple methods with the same name but different parameter lists. Example:\n\n```csharp\nvoid Display(int number) {\n    Console.WriteLine(\"Number: \" + number);\n}\n\nvoid Display(string text) {\n    Console.WriteLine(\"Text: \" + text);\n}\n\nDisplay(10); // Calls the first method\nDisplay(\"Hello\"); // Calls the second method\n```"
+        ]
+      },
+      {
+        "pattern": "what is the difference between static and instance methods in csharp?|csharp static vs instance methods",
+        "responses": [
+          "In Csharp:\n\n- **Static Methods** belong to the class and can be called without creating an instance. Example:\n\n```csharp\nclass Example {\n    public static void ShowMessage() {\n        Console.WriteLine(\"Static method called\");\n    }\n}\nExample.ShowMessage();\n```\n\n- **Instance Methods** belong to an object and require an instance to call. Example:\n\n```csharp\nclass Example {\n    public void ShowMessage() {\n        Console.WriteLine(\"Instance method called\");\n    }\n}\nExample obj = new Example();\nobj.ShowMessage();\n```"
+        ]
+      },
+      {
+        "pattern": "what is a recursive method in csharp?|csharp recursion|examples of recursive methods",
+        "responses": [
+          "A recursive method in Csharp calls itself to solve a problem in smaller steps. Example:\n\n```csharp\nint Factorial(int n) {\n    if (n == 0) return 1;\n    return n * Factorial(n - 1);\n}\n\nConsole.WriteLine(Factorial(5)); // Output: 120\n```"
+        ]
+      },
+      {
+        "pattern": "how to return a value from a method in csharp?|return values in csharp methods",
+        "responses": [
+          "To return a value from a method in Csharp, use the `return` keyword with the value to return. Example:\n\n```csharp\nint Add(int a, int b) {\n    return a + b;\n}\nint result = Add(5, 3);\nConsole.WriteLine(result); // Output: 8\n```"
+        ]
+      },
+      {
+        "pattern": "what are optional parameters in csharp methods?|csharp optional parameters|examples of optional parameters",
+        "responses": [
+          "Optional parameters in Csharp allow you to omit arguments when calling a method. Use default values when defining parameters. Example:\n\n```csharp\nvoid PrintMessage(string message = \"Hello, World!\") {\n    Console.WriteLine(message);\n}\n\nPrintMessage(); // Output: Hello, World!\nPrintMessage(\"Hi there!\"); // Output: Hi there!\n```"
+        ]
+      },
+      {
+        "pattern": "what are classes in csharp?|csharp classes|define class in csharp",
+        "responses": [
+          "In Csharp, a class is a blueprint for creating objects. It defines properties and methods that describe the behavior and state of the objects. Example:\n\n```csharp\nclass Person {\n    public string Name;\n    public int Age;\n    public void Greet() {\n        Console.WriteLine($\"Hello, my name is {Name}.\");\n    }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "how to create a class in csharp?|csharp class creation|example of a class in csharp",
+        "responses": [
+          "To create a class in Csharp, use the `class` keyword followed by the class name. Example:\n\n```csharp\nclass Car {\n    public string Brand;\n    public int Year;\n\n    public void Drive() {\n        Console.WriteLine(\"The car is driving.\");\n    }\n}\n```"
+        ]
+      },
+      {
+        "pattern": "what is an object in csharp?|csharp objects|define object in csharp",
+        "responses": [
+          "An object in Csharp is an instance of a class. It is created using the `new` keyword. Example:\n\n```csharp\nCar myCar = new Car();\nmyCar.Brand = \"Toyota\";\nmyCar.Year = 2022;\nmyCar.Drive();\n```"
+        ]
+      },
+      {
+        "pattern": "what is a constructor in csharp?|csharp constructors|define constructor in csharp",
+        "responses": [
+          "A constructor in Csharp is a special method used to initialize objects. It is called automatically when an object is created. Example:\n\n```csharp\nclass Person {\n    public string Name;\n\n    public Person(string name) {\n        Name = name;\n    }\n}\nPerson person = new Person(\"Alice\");\nConsole.WriteLine(person.Name); // Output: Alice\n```"
+        ]
+      },
+      {
+        "pattern": "what are properties in csharp classes?|csharp properties|define properties in csharp",
+        "responses": [
+          "Properties in Csharp are used to encapsulate fields and provide controlled access to them. Example:\n\n```csharp\nclass Person {\n    private string name;\n\n    public string Name {\n        get { return name; }\n        set { name = value; }\n    }\n}\nPerson person = new Person();\nperson.Name = \"Alice\";\nConsole.WriteLine(person.Name); // Output: Alice\n```"
+        ]
+      },
+      {
+        "pattern": "what is inheritance in csharp?|csharp inheritance|example of inheritance in csharp",
+        "responses": [
+          "Inheritance in Csharp allows a class to inherit properties and methods from another class. Example:\n\n```csharp\nclass Animal {\n    public void Eat() {\n        Console.WriteLine(\"This animal is eating.\");\n    }\n}\n\nclass Dog : Animal {\n    public void Bark() {\n        Console.WriteLine(\"The dog is barking.\");\n    }\n}\n\nDog myDog = new Dog();\nmyDog.Eat(); // Inherited method\nmyDog.Bark();\n```"
+        ]
+      },
+      {
+        "pattern": "what is encapsulation in csharp?|csharp encapsulation|example of encapsulation in csharp",
+        "responses": [
+          "Encapsulation in Csharp is the practice of keeping fields private and providing access through public properties or methods. Example:\n\n```csharp\nclass BankAccount {\n    private decimal balance;\n\n    public decimal Balance {\n        get { return balance; }\n        set { if (value > 0) balance = value; }\n    }\n}\nBankAccount account = new BankAccount();\naccount.Balance = 1000;\nConsole.WriteLine(account.Balance); // Output: 1000\n```"
+        ]
+      },
+      {
+        "pattern": "what is polymorphism in csharp?|csharp polymorphism|example of polymorphism in csharp",
+        "responses": [
+          "Polymorphism in Csharp allows methods in derived classes to have different implementations while sharing the same name as the base class. Example:\n\n```csharp\nclass Animal {\n    public virtual void Speak() {\n        Console.WriteLine(\"This animal speaks.\");\n    }\n}\n\nclass Dog : Animal {\n    public override void Speak() {\n        Console.WriteLine(\"The dog barks.\");\n    }\n}\n\nAnimal myAnimal = new Dog();\nmyAnimal.Speak(); // Output: The dog barks.\n```"
+        ]
+      },
+      {
+        "pattern": "how to use static members in csharp classes?|csharp static members|examples of static members",
+        "responses": [
+          "Static members in Csharp belong to the class rather than any object and can be accessed directly using the class name. Example:\n\n```csharp\nclass MathUtil {\n    public static int Add(int a, int b) {\n        return a + b;\n    }\n}\nConsole.WriteLine(MathUtil.Add(5, 3)); // Output: 8\n```"
+        ]
+      },
+      {
+        "pattern": "what is an abstract class in csharp?|csharp abstract class|example of abstract class in csharp",
+        "responses": [
+          "An abstract class in Csharp is a class that cannot be instantiated and is meant to be inherited. It can have abstract methods that must be implemented in derived classes. Example:\n\n```csharp\nabstract class Animal {\n    public abstract void Speak();\n}\n\nclass Dog : Animal {\n    public override void Speak() {\n        Console.WriteLine(\"The dog barks.\");\n    }\n}\n\nAnimal myDog = new Dog();\nmyDog.Speak(); // Output: The dog barks.\n```"
+        ]
+      }
+    ]
+  }
+  

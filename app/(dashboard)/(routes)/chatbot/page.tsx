@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import javaResponses from './javaresponses.json'; // Adjust the path if necessary
 import pythonResponses from './pythonresponses.json'; // Adjust the path if necessary
 import jsResponses from './jsresponses.json' 
+import csharpResponses from './csharpresponses.json'; // Adjust the path if necessary
+import mysqlResponses from './mysqlresponses.json'; // Adjust
 import { Banner } from "@/components/banner";
 
 
@@ -21,6 +23,10 @@ const Chatbot: React.FC = () => {
       setResponsesData(pythonResponses);
     } else if (language === 'javascript') {
       setResponsesData(jsResponses);
+    } else if (language === 'c#') {
+      setResponsesData(csharpResponses);
+    } else if (language === 'mysql') {
+      setResponsesData(mysqlResponses);
     }
     console.log(`Responses updated to: ${language}`, responsesData); // Debugging line
   }, [language]);
@@ -115,6 +121,10 @@ const Chatbot: React.FC = () => {
           <option value="java">Java</option>
           <option value="python">Python</option>
           <option value="javascript">Javascript</option>
+          <option value="c#">C#</option>
+          <option value="mysql">MySQL</option>
+
+
         </select>
       </div>
 

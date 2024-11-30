@@ -129,8 +129,6 @@ model UserProgress {
   @@unique([userId,chapterId])
 
 
-
-
 }
 
 model Purchase {
