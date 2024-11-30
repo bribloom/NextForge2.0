@@ -10,7 +10,7 @@ const NextForge = () => {
             {/* Hero Section */}
             <header className="flex flex-col items-center justify-center flex-grow py-20 text-center">
             <Logo />
-                <p className="text-lg mb-8">Unlock your potential with our comprehensive courses and resources.</p>
+                <p className="text-lg mb-8">Advancing knowledge and skills through a commitment to educational excellence.</p>
                 <div className="flex space-x-4">
                     <Link href="/sign-in">
                         <button className="px-6 py-3 bg-white text-black rounded-lg shadow-lg hover:bg-gray-200 transition duration-200">
@@ -28,7 +28,7 @@ const NextForge = () => {
             {/* Features Section */}
             <section className="py-20 bg-neutral-900 text-white">
                 <div className="max-w-6xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-center mb-12">Why Nextforge?</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12">Why Nextforge?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="p-6 bg-neutral-900 border border-white rounded-lg shadow-lg">
                             <h3 className="text-xl font-semibold mb-2">Comprehensive Courses</h3>
