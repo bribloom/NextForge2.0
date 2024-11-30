@@ -18,25 +18,27 @@ export const CourseEnrollButton = ({
 }:CourseEnrollButtonProps) => {
 
     const [isLoading, setIsLoading] = useState(false);
+    const [isEnrolled, setIsEnrolled] = useState(false); // State to track enrollment
 
     const onClick = async () => {
-        try{
+        try {
             setIsLoading(true);
-            await axios.post(`/api/courses/${courseId}/enroll`)
-            toast.success("Successfully enrolled in the course!");
-            //window.location.assign(response.data.url);
-
-        }catch{
+            const response = await axios.post(`/api/courses/${courseId}/enroll`);
+            if (response.status === 200) {
+                setIsEnrolled(true); // Update the state to reflect enrollment
+                toast.success("Successfully enrolled in the course!");
+            }
+        } catch (error) {
             toast.error("Something went wrong");
-        }finally{
-            setIsLoading(false)
+        } finally {
+            setIsLoading(false);
         }
     }
 
     return(
         <Button 
         onClick={onClick}
-        disabled={isLoading}
+        disabled={isLoading || isEnrolled} // Disable button if loading or already enrolled
         size="sm"
         className="w-auto md:auto ">
             Enroll for free

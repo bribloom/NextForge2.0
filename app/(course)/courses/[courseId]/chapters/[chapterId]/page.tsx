@@ -63,7 +63,7 @@ const ChapterIdPage = async ({
              {isLocked && (
                 <Banner
                 variant={"warning"}
-                    label="You need to enroll this course to watch this chapter."
+                    label="WARNING: You need to enroll this course to watch this chapter. If the chapter content does not display, please refresh the page."
                 />
             )}
             <div className="flex flex-col max-w-4xl mx-auto pb-20">
