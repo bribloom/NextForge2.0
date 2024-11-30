@@ -16,10 +16,9 @@
         ]
       },
       {
-        "pattern": "what is java|what is java?|java",
+        "pattern": "what is java|what is java?",
         "responses": [
-          "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
-          "Java is a versatile programming language used for building applications across various platforms."
+          "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
         ]
       },
       {
