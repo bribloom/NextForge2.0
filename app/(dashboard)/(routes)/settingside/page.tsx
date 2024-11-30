@@ -51,11 +51,11 @@ const SettingsPage = () => {
             <Separator className="my-6 w-full" />
 
             <div className="flex flex-col items-center">
-                <h2 className="text-lg font-semibold text-white mb-4">Danger Zone</h2>
-                <Button variant="destructive" onClick={handleDeleteUser } className="mt-2 rounded-md">
+                <h2 className="text-lg font-semibold text-red-600 mb-4">Danger Zone</h2>
+                <Button variant="destructive" onClick={handleDeleteUser } className="mt-2 px-16 rounded-2xl">
                     Delete User
                 </Button>
-                <Button variant="outline" onClick={() => signOut()} className="mt-2 rounded-md">
+                <Button variant="outline" onClick={() => signOut()} className="mt-2 px-20 rounded-2xl">
                     Logout
                 </Button>
             </div>

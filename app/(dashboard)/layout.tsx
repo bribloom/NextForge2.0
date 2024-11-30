@@ -25,7 +25,7 @@ const AuthLayout = ({
 
             </div>
 
-            <main className="md:pl-56 pt-[80px]  h-full bg-neutral-800 ">
+            <main className="md:pl-56 pt-[80px] min-h-full bg-neutral-800 ">
 
             {children}
 

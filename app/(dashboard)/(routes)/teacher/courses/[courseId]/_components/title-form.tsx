@@ -87,20 +87,20 @@ export const TitleForm = ({
 
     return(
 
-        <div className="mt-6 border bg-purple-900 rounded-md p-4">
+        <div className="mt-6 border bg-emerald-700 rounded-3xl p-4">
             
             <div className="font-semibold flex items-center justify-between">
 
                 Course Title
 
-                <Button className='bg-neutral-900' onClick={toggleEdit} variant="ghost">
+                <Button className='bg-neutral-900' rounded-3xl  onClick={toggleEdit} variant="ghost">
                         {isEditing && (
                             <>Cancel</>
                         )}
                         {!isEditing && (
 
                             <>
-                          <Pencil className="h-4 w-4 mr-2"/>
+                          <Pencil className="h-4 w-4  mr-2"/>
                              Edit title
                             </>
                         )}

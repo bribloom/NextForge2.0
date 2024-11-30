@@ -85,7 +85,7 @@ export const ChapterTitleForm = ({
 
     return(
 
-        <div className="mt-6 border bg-purple-900 rounded-md p-4">
+        <div className="mt-6 border bg-emerald-700 rounded-3xl p-4">
             
             <div className=" flex items-center font-semibold justify-between">
 
