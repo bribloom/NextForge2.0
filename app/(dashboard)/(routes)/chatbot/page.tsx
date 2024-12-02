@@ -159,13 +159,13 @@ const Chatbot: React.FC = () => {
 
   {/* FAQ Section */}
   <div className="mt-6">
-        <h2 className="text-lg font-semibold mb-2">Frequently Asked Questions</h2>
+        <h2 className="text-lg font-semibold mb-2 text-black">Frequently Asked Questions</h2>
         <ul className="space-y-2">
           {faqs.map((faq, index) => (
             <li key={index}>
               <button 
                 onClick={() => handleFAQClick(faq.pattern)} 
-                className="text-blue-500 underline hover:text-blue-700"
+                className="text-emerald-500 underline hover:text-emerald-700"
               >
                 {faq.question}
               </button>
