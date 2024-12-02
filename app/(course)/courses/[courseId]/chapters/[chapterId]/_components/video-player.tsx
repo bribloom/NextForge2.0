@@ -9,16 +9,7 @@ import { cn } from "@/lib/utils";
 import { useConfettiStore } from "@/hooks/use-confetti-store";
 import { Loader2, Lock } from "lucide-react";
 
-// Utility function to detect screen recording
-const isScreenRecording = async () => {
-    if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-        const devices = await navigator.mediaDevices.enumerateDevices();
-        return devices.some(device => device.kind === 'videoinput' && device.label.toLowerCase().includes('screen'));
-    }
-    return false;
-};
-
-interface VideoPlayerProps { 
+interface VideoPlayerProps {
     playbackId: string;
     courseId: string;
     chapterId: string;
@@ -35,7 +26,7 @@ export const VideoPlayer = ({
     nextChapterId,
     isLocked,
     completeOnEnd,
-    title, 
+    title,
 }: VideoPlayerProps) => {
 
     const [isReady, setIsReady] = useState(false);
@@ -43,18 +34,21 @@ export const VideoPlayer = ({
     const router = useRouter();
     const confetti = useConfettiStore();
 
-    // Check for screen recording on component mount
+    // Monitor focus and visibility change
     useEffect(() => {
-        const checkForScreenRecording = async () => {
-            const recordingDetected = await isScreenRecording();
-            if (recordingDetected) {
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
                 setRecordingDetected(true);
                 toast.error("Screen recording software detected. Please disable it to continue.");
-                // Optionally, you could redirect the user or take other actions here
+            } else {
+                setRecordingDetected(false);
             }
         };
 
-        checkForScreenRecording();
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, []);
 
     // If the video is done, automatically go to the next video
