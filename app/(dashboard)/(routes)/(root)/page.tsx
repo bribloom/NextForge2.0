@@ -37,13 +37,13 @@ export default async function Dashboard() {
                 />
             )}
             <div className="p-6 space-y-4">
-                <h2 className="text-xl font-semibold">Courses In Progress</h2>
+                <h2 className="text-xl font-semibold border rounded-3xl p-1 bg-emerald-700">Courses In Progress</h2>
                 <CoursesList items={coursesInProgress} />
 
-                <h2 className="text-xl font-semibold">Completed Courses</h2>
+                <h2 className="text-xl font-semibold border rounded-3xl p-1 bg-emerald-700">Completed Courses</h2>
                 <CoursesList items={completedCourses} />
 
-                <h2 className="text-xl font-semibold">Recommended Courses</h2>
+                <h2 className="text-xl font-semibold border rounded-3xl p-1 bg-emerald-700">Recommended Courses</h2>
                 <CoursesList items={recommendedCourses} />
              </div>
          </div>
