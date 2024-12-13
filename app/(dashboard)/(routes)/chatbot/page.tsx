@@ -1,5 +1,5 @@
 "use client"; // This line marks the component as a Client Component
-
+//INTENT RECOGNITION AND COMPROMISE
 import React, { useState, useEffect } from 'react';
 import javaResponses from './javaresponses.json'; // Adjust the path if necessary
 import pythonResponses from './pythonresponses.json'; // Adjust the path if necessary
@@ -7,7 +7,7 @@ import jsResponses from './jsresponses.json'
 import csharpResponses from './csharpresponses.json'; // Adjust the path if necessary
 import mysqlResponses from './mysqlresponses.json'; // Adjust
 import { Banner } from "@/components/banner";
-
+import nlp from 'compromise';
 
 const Chatbot: React.FC = () => {
   const [userInput, setUserInput] = useState('');
@@ -71,10 +71,11 @@ const Chatbot: React.FC = () => {
 
   const getBotResponse = (message: string) => {
     // Use regex to match the intent patterns
+    const doc = nlp(message);
     const intent = responsesData.intents.find((intent) => {
       const regex = new RegExp(`${intent.pattern.replace('?', '\\?')}\\??`, 'i');
       console.log(`Checking pattern: ${intent.pattern}, against message: ${message}, result: ${regex.test(message)}`); // Debugging line
-      return regex.test(message);
+      return regex.test(message) || doc.has(intent.pattern);
     });
 
     if (intent) {

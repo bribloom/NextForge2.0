@@ -58,8 +58,8 @@ export const CourseCard = ({
                             value={progress}
                         />
                     ): (
-                        <p className="text-md md:text-sm font-semibold text-white">
-                                Free
+                        <p className="text-md border rounded-2xl p-2 bg-red-600 md:text-sm font-semibold text-white">
+                            By: NextForge
                         </p>
                     )}
                 </div>
