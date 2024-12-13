@@ -2,7 +2,7 @@
 //INTENT RECOGNITION AND COMPROMISE
 import React, { useState, useEffect } from 'react';
 import javaResponses from './javaresponses.json'; // Adjust the path if necessary
-import pythonResponses from './pythonresponses.json'; // Adjust the path if necessary
+import pythonResponses from './pythonresponses.json'  ; // Adjust the path if necessary
 import jsResponses from './jsresponses.json' 
 import csharpResponses from './csharpresponses.json'; // Adjust the path if necessary
 import mysqlResponses from './mysqlresponses.json'; // Adjust
@@ -82,6 +82,7 @@ const Chatbot: React.FC = () => {
       const responses = intent.responses;
       return responses[Math.floor(Math.random() * responses.length)];
     }
+    
     return (
       <div style={{ color: 'red' }}>
         Thank you for your inquiry. However, I must inform you that my current dataset is limited, and I do not have the information necessary to address your specific prompt at this time.

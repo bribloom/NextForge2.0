@@ -150,12 +150,11 @@ model Purchase {
 }
 
 model Badge {
-    id String @id @default(uuid())
+    id        String  @id @default(uuid())
     userId    String
     chapterId String
     courseId  String
-         course    Course   @relation(fields: [courseId], references: [id]) // Define the relation
-         chapter    Chapter  @relation(fields: [chapterId], references: [id]) // Ensure this line exists
-
+    course    Course  @relation(fields: [courseId], references: [id])
+    chapter   Chapter @relation(fields: [chapterId], references: [id])
     createdAt DateTime @default(now())
 }
