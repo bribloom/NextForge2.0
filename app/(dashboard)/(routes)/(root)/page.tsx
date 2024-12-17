@@ -17,12 +17,13 @@ export default async function Dashboard() {
 
     // Fetch recommendations based on completed and in-progress courses
     const { recommendedCourses } = await getCourseRecommendations(userId);
-    console.log("Recommended Courses:", recommendedCourses); // Log recommended courses
+   // console.log("Recommended Courses:", recommendedCourses); // Log recommended courses
 
     // Fetch completed and in-progress courses
     const { completedCourses, coursesInProgress } = await getDashboardCourses(userId);
-    console.log("Completed Courses:", completedCourses); // Log completed courses
-    console.log("Courses In Progress:", coursesInProgress); // Log courses in progress
+   
+   // console.log("Completed Courses:", completedCourses); // Log completed courses
+   // console.log("Courses In Progress:", coursesInProgress); // Log courses in progress
 
    
 

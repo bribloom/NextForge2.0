@@ -34,6 +34,7 @@
     "cmdk": "^1.0.0",
     "compromise": "^14.14.3",
     "lucide-react": "^0.440.0",
+    "natural": "^8.0.1",
     "next": "^14.2.10",
     "query-string": "^9.1.1",
     "react": "^18",
