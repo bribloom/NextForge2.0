@@ -1,6 +1,6 @@
 "use client";
 
-import { AwardIcon, Layout, BotMessageSquare, LayoutList, Settings, BookOpen, ChartColumnBig, Award} from "lucide-react";
+import { AwardIcon, Layout, BotMessageSquare, LayoutList, Settings, BookOpen, ChartColumnBig, Dices} from "lucide-react";
 import { SidebarItem } from "./sidebar-item";
 import { usePathname } from "next/navigation";
 

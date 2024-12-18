@@ -40,12 +40,12 @@ export const CourseCard = ({
                     <div className="text-lg md:text-base font-semibold group-hover:text-green-600 transition line-clamp-2 ">
                         {title}
                     </div>
-                    <p className="text-xs font-medium">
+                    <p className="text-xs font-medium border rounded-2xl px-2 flex bg-red-400">
                         {category}
                     </p>
                     <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
                         <div className="flex items-center gap-x-1 text-white">
-                             <IconBadge size="sm" icon={BookOpen} backgroundVariant={"purple"} iconVariant={"purple"}/>
+                             <IconBadge size="sm" icon={BookOpen} backgroundVariant={"success"} iconVariant={"success"}/>
                              <span className="font-semibold">
                                 {chaptersLength} {chaptersLength === 1?  "Chapter": "Chapters"}
                              </span>
@@ -59,7 +59,7 @@ export const CourseCard = ({
                         />
                     ): (
                         <p className="text-md md:text-sm font-semibold text-white">
-                                Free
+                                By NextForge
                         </p>
                     )}
                 </div>
