@@ -60,9 +60,9 @@ const teacherRoutes = [
     {
 
     
-        icon: SquarePlus,
-        label: "Create Quiz",
-        href: "/teacher/create-quiz"
+        icon: Dices,
+        label: "Quizzes",
+        href: "/teacher/quizzes"
     },
     {
     

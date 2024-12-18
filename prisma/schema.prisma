@@ -158,3 +158,20 @@ model Badge {
     chapter   Chapter @relation(fields: [chapterId], references: [id])
     createdAt DateTime @default(now())
 }
+
+model Quiz {
+    id          String   @id @default(cuid())
+    title       String
+    description String
+    userId      String
+    questions   Question[]
+}
+
+model Question {
+    id            String   @id @default(cuid())
+    question      String
+    options       Json // Store options as an array of strings
+    correctAnswer String
+    quizId        String
+    quiz          Quiz     @relation(fields: [quizId], references: [id])
+}
