@@ -1,6 +1,6 @@
 "use client";
 
-import { AwardIcon, Layout, BotMessageSquare, LayoutList, Settings, BookOpen, ChartColumnBig, Dices} from "lucide-react";
+import { AwardIcon, Layout, BotMessageSquare, LayoutList, Settings, BookOpen, ChartColumnBig, Dices, SquarePlus} from "lucide-react";
 import { SidebarItem } from "./sidebar-item";
 import { usePathname } from "next/navigation";
 
@@ -56,6 +56,13 @@ const teacherRoutes = [
         icon: LayoutList,
         label: "Instructor Course",
         href: "/teacher/courses"
+    },
+    {
+
+    
+        icon: SquarePlus,
+        label: "Create Quiz",
+        href: "/teacher/create-quiz"
     },
     {
     
