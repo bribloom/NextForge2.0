@@ -4,6 +4,8 @@ import * as z from "zod";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -32,7 +34,12 @@ const formSchema = z.object({
     }),
 });
 
-const QuizzesPage = () => {
+const EditQuizPage = ({ params }: { params: { id: string } }) => {
+    const router = useRouter();
+    const quizId = params.id;
+
+    const [loading, setLoading] = useState(true);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -42,23 +49,45 @@ const QuizzesPage = () => {
         },
     });
 
-    const { isSubmitting, isValid } = form.formState;
+    useEffect(() => {
+        const fetchQuiz = async () => {
+            try {
+                const { data } = await axios.get(`/api/quizzes/${quizId}`);
+                form.reset({
+                    title: data.title,
+                    description: data.description,
+                    questions: data.questions.map((q: any) => ({
+                        question: q.question,
+                        options: JSON.parse(q.options),
+                        correctAnswer: q.correctAnswer,
+                    })),
+                });
+                setLoading(false);
+            } catch (error) {
+                toast.error("Failed to load quiz");
+                router.push("/teacher/quizzes");
+            }
+        };
+
+        fetchQuiz();
+    }, [quizId, form, router]);
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("/api/quizzes", values); // Send data to the API route
-            toast.success("Quiz Created");
-            // Instead of redirecting, reset the form to keep the input values
-            form.reset(); // Reset the form to its default values
-            form.setValue("questions", [{ question: "", options: ["", ""], correctAnswer: "" }]); // Reset questions
+            await axios.put(`/api/quizzes/${quizId}`, values);
+            toast.success("Quiz Updated");
         } catch (error) {
             toast.error("Something went wrong");
         }
     };
 
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className="max-w-5xl mx-auto flex flex-col p-6">
-            <h1 className="text-2xl font-semibold">Create a New Quiz</h1>
+            <h1 className="text-2xl font-semibold">Edit Quiz</h1>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-8">
                     <FormField
@@ -74,7 +103,6 @@ const QuizzesPage = () => {
                             </FormItem>
                         )}
                     />
-
                     <FormField
                         control={form.control}
                         name="description"
@@ -88,125 +116,15 @@ const QuizzesPage = () => {
                             </FormItem>
                         )}
                     />
-
-                       {/* Questions Section */}
-                       <div>
-                        <h2 className="text-xl font-semibold">Questions</h2>
-                        {form.watch("questions").map((_, index) => (
-                            <div key={index} className="border p-4 rounded-md mb-4">
-                                <FormField
-                                    control={form.control}
-                                    name={`questions.${index}.question`}
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Question {index + 1}</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter question" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <FormField
-                                    control={form.control}
-                                    name={`questions.${index}.options`}
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Options</FormLabel>
-                                            <FormControl>
-                                                <>
-                                                    {field.value.map((option, optionIndex) => (
-                                                        <div key={optionIndex} className="flex items-center mb-2">
-                                                        <Input
-                                                            placeholder={`Option ${optionIndex + 1}`}
-                                                            value={option}
-                                                            onChange={(e) => {
-                                                                const newOptions = [...field.value];
-                                                                newOptions[optionIndex] = e.target.value;
-                                                                form.setValue(`questions.${index}.options`, newOptions);
-                                                            }}
-                                                        />
-                                                        <Button
-                                                            type="button"
-                                                            onClick={() => {
-                                                                const newOptions = field.value.filter((_, i) => i !== optionIndex);
-                                                                form.setValue(`questions.${index}.options`, newOptions);
-                                                            }}
-                                                            variant="destructive"
-                                                            className="ml-2"
-                                                        >
-                                                            Remove Option
-                                                        </Button>
-                                                    </div>
-                                                ))}
-                                            </>
-                                        </FormControl>
-                                        <FormMessage />
-                                        <Button
-                                            type="button"
-                                            onClick={() => {
-                                                const newOptions = [...field.value, ""];
-                                                form.setValue(`questions.${index}.options`, newOptions);
-                                            }}
-                                        >
-                                            Add Option
-                                        </Button>
-                                    </FormItem>
-                                )}
-                            />
-
-                            <FormField
-                                control={form.control}
-                                name={`questions.${index}.correctAnswer`}
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Correct Answer</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                placeholder="Enter the correct answer"
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-
-                            <Button
-                                type="button"
-                                onClick={() => {
-                                    const currentQuestions = form.getValues("questions");
-                                    const newQuestions = [...currentQuestions];
-                                    newQuestions.splice(index, 1);
-                                    form.setValue("questions", newQuestions);
-                                }}
-                                variant="destructive"
-                            >
-                                Remove Question
-                            </Button>
-                        </div>
-                    ))}
-
-                    <Button
-                        type="button"
-                        onClick={() => {
-                            const currentQuestions = form.getValues("questions");
-                            const newQuestions = [...currentQuestions, { question: "", options: ["", ""], correctAnswer: "" }];
-                            form.setValue("questions", newQuestions);
-                        }}
-                    >
-                        Add Question
+                    {/* Same layout for questions as in CreateQuizPage */}
+                    {/* Add logic for adding/removing questions and options */}
+                    <Button type="submit" disabled={form.formState.isSubmitting}>
+                        {form.formState.isSubmitting ? "Updating..." : "Update Quiz"}
                     </Button>
-                </div>
-
-                <Button type="submit" disabled={isSubmitting || !isValid}>
-                    {isSubmitting ? "Creating..." : "Create Quiz"}
-                </Button>
-            </form>
-        </Form>
-    </div>
-);
+                </form>
+            </Form>
+        </div>
+    );
 };
 
-export default QuizzesPage;
+export default EditQuizPage;
