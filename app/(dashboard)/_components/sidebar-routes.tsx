@@ -7,18 +7,19 @@ import { usePathname } from "next/navigation";
 
 const guestRoutes = [
 
-{
+    {
    
     icon: Layout,
     label: "Dashboard",
     href: "/"
-},
-{
+    },
+    {
 
     icon: BookOpen,
     label: "Find Course",
     href: "/search"
-},
+    },
+    
    
 
     {
@@ -26,7 +27,11 @@ const guestRoutes = [
         label: "Next Chatbot",
         href:"/chatbot"
     },
-
+    {
+        icon: Dices,
+        label: "Quiz",
+        href:"/quiz"
+        },
 
     {
         icon:AwardIcon,

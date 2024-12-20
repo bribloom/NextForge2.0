@@ -1,128 +1,191 @@
 "use client";
 
-import * as z from "zod";
-import axios from "axios";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import toast from "react-hot-toast";
 
-const formSchema = z.object({
-    title: z.string().min(1, {
-        message: "Title is required",
-    }),
-    description: z.string().min(1, {
-        message: "Description is required",
-    }),
-    questions: z.array(z.object({
-        question: z.string().min(1, {
-            message: "Question is required",
-        }),
-        options: z.array(z.string().min(1)).min(2, {
-            message: "At least two options are required",
-        }),
-        correctAnswer: z.string().min(1, {
-            message: "Correct answer is required",
-        }),
-    })).min(1, {
-        message: "At least one question is required",
-    }),
-});
+interface Question {
+    question: string;
+    options: string[];
+    correctAnswer: string;
+}
 
 const EditQuizPage = ({ params }: { params: { id: string } }) => {
+    const [loading, setLoading] = useState(false);
+    const [quiz, setQuiz] = useState<any>(null);
     const router = useRouter();
-    const quizId = params.id;
 
-    const [loading, setLoading] = useState(true);
-
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const { register, handleSubmit, reset, setValue, watch } = useForm({
         defaultValues: {
             title: "",
             description: "",
-            questions: [{ question: "", options: ["", ""], correctAnswer: "" }],
+            questions: [] as Question[],
         },
     });
 
+    // Fetch Quiz Data
     useEffect(() => {
         const fetchQuiz = async () => {
             try {
-                const { data } = await axios.get(`/api/quizzes/${quizId}`);
-                form.reset({
+                const { data } = await axios.get(`/api/quizzes/${params.id}`);
+                // Ensure each question has a valid `options` array
+                const sanitizedQuestions = data.questions.map((q: any) => ({
+                    ...q,
+                    options: Array.isArray(q.options) ? q.options : [],
+                }));
+
+                setQuiz(data);
+
+                // Pre-fill form values
+                reset({
                     title: data.title,
                     description: data.description,
-                    questions: data.questions.map((q: any) => ({
-                        question: q.question,
-                        options: JSON.parse(q.options),
-                        correctAnswer: q.correctAnswer,
-                    })),
+                    questions: sanitizedQuestions,
                 });
-                setLoading(false);
             } catch (error) {
-                toast.error("Failed to load quiz");
-                router.push("/teacher/quizzes");
+                console.error("Failed to load quiz", error);
             }
         };
-
         fetchQuiz();
-    }, [quizId, form, router]);
+    }, [params.id, reset]);
 
-    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    // Watch for questions array
+    const questions = watch("questions");
+
+    const addQuestion = () => {
+        const updatedQuestions = [
+            ...questions,
+            { question: "", options: ["", ""], correctAnswer: "" },
+        ];
+        setValue("questions", updatedQuestions);
+    };
+
+    const removeQuestion = (index: number) => {
+        const updatedQuestions = questions.filter((_: Question, i: number) => i !== index);
+        setValue("questions", updatedQuestions);
+    };
+
+    const updateOption = (questionIndex: number, optionIndex: number, value: string) => {
+        const updatedQuestions = [...questions];
+        updatedQuestions[questionIndex].options[optionIndex] = value;
+        setValue("questions", updatedQuestions);
+    };
+
+    const addOption = (questionIndex: number) => {
+        const updatedQuestions = [...questions];
+        updatedQuestions[questionIndex].options.push("");
+        setValue("questions", updatedQuestions);
+    };
+
+    const removeOption = (questionIndex: number, optionIndex: number) => {
+        const updatedQuestions = [...questions];
+        updatedQuestions[questionIndex].options.splice(optionIndex, 1);
+        setValue("questions", updatedQuestions);
+    };
+
+    const onSubmit = async (data: any) => {
         try {
-            await axios.put(`/api/quizzes/${quizId}`, values);
-            toast.success("Quiz Updated");
+            setLoading(true);
+            await axios.put(`/api/quizzes/${params.id}`, data);
+            router.push("/teacher/quizzes");
         } catch (error) {
-            toast.error("Something went wrong");
+            console.error("Failed to update quiz", error);
+        } finally {
+            setLoading(false);
         }
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    if (!quiz) return <div>Loading...</div>;
 
     return (
-        <div className="max-w-5xl mx-auto flex flex-col p-6">
-            <h1 className="text-2xl font-semibold">Edit Quiz</h1>
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-8">
-                    <FormField
-                        control={form.control}
-                        name="title"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Quiz Title</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="Enter quiz title" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="description"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Quiz Description</FormLabel>
-                                <FormControl>
-                                    <Textarea placeholder="Enter quiz description" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    {/* Same layout for questions as in CreateQuizPage */}
-                    {/* Add logic for adding/removing questions and options */}
-                    <Button type="submit" disabled={form.formState.isSubmitting}>
-                        {form.formState.isSubmitting ? "Updating..." : "Update Quiz"}
+        <div className="max-w-5xl mx-auto p-6">
+            <h1 className="text-2xl font-bold mb-4">Edit Quiz</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div>
+                    <label className="block font-medium mb-2">Quiz Title</label>
+                    <Input {...register("title")} placeholder="Enter quiz title" />
+                </div>
+                <div>
+                    <label className="block font-medium mb-2">Quiz Description</label>
+                    <Textarea {...register("description")} placeholder="Enter quiz description" />
+                </div>
+
+                <div>
+                    <h2 className="text-xl font-semibold mb-4">Questions</h2>
+                    {questions.map((question: Question, questionIndex: number) => (
+                        <div key={questionIndex} className="border p-4 rounded-md mb-4">
+                            <div>
+                                <label className="block font-medium mb-2">Question</label>
+                                <Input
+                                    value={question.question}
+                                    onChange={(e) =>
+                                        setValue(`questions.${questionIndex}.question`, e.target.value)
+                                    }
+                                    placeholder={`Question ${questionIndex + 1}`}
+                                />
+                            </div>
+                            <div className="mt-4">
+                                <h3 className="font-medium mb-2">Options</h3>
+                                {question.options.map((option: string, optionIndex: number) => (
+                                    <div key={optionIndex} className="flex items-center mb-2">
+                                        <Input
+                                            value={option}
+                                            onChange={(e) =>
+                                                updateOption(questionIndex, optionIndex, e.target.value)
+                                            }
+                                            placeholder={`Option ${optionIndex + 1}`}
+                                        />
+                                        <Button
+                                            type="button"
+                                            onClick={() => removeOption(questionIndex, optionIndex)}
+                                            variant="destructive"
+                                            className="ml-2"
+                                        >
+                                            Remove
+                                        </Button>
+                                    </div>
+                                ))}
+                                <Button
+                                    type="button"
+                                    onClick={() => addOption(questionIndex)}
+                                    className="mt-2"
+                                >
+                                    Add Option
+                                </Button>
+                            </div>
+                            <div className="mt-4">
+                                <label className="block font-medium mb-2">Correct Answer</label>
+                                <Input
+                                    value={question.correctAnswer}
+                                    onChange={(e) =>
+                                        setValue(`questions.${questionIndex}.correctAnswer`, e.target.value)
+                                    }
+                                    placeholder="Correct answer"
+                                />
+                            </div>
+                            <Button
+                                type="button"
+                                onClick={() => removeQuestion(questionIndex)}
+                                variant="destructive"
+                                className="mt-4"
+                            >
+                                Remove Question
+                            </Button>
+                        </div>
+                    ))}
+                    <Button type="button" onClick={addQuestion}>
+                        Add Question
                     </Button>
-                </form>
-            </Form>
+                </div>
+
+                <Button type="submit" disabled={loading}>
+                    {loading ? "Updating..." : "Update Quiz"}
+                </Button>
+            </form>
         </div>
     );
 };
