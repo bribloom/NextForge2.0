@@ -32,10 +32,10 @@ const EditQuizPage = ({ params }: { params: { id: string } }) => {
         const fetchQuiz = async () => {
             try {
                 const { data } = await axios.get(`/api/quizzes/${params.id}`);
-                // Ensure each question has a valid `options` array
+                // Ensure each question has valid `options` parsed from JSON
                 const sanitizedQuestions = data.questions.map((q: any) => ({
                     ...q,
-                    options: Array.isArray(q.options) ? q.options : [],
+                    options: q.options ? JSON.parse(q.options) : [], // Parse options JSON string
                 }));
 
                 setQuiz(data);

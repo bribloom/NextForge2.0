@@ -4,17 +4,23 @@ import { auth } from "@clerk/nextjs/server";
 
 export async function GET(req: Request) {
     try {
-        const { userId } = auth();
-
-        if (!userId) {
-            return new NextResponse("Unauthorized", { status: 401 });
-        }
-
+        // Fetch all quizzes, including their questions
         const quizzes = await db.quiz.findMany({
-            where: { userId }, // Adjust this filter based on your requirements
+            include: {
+                questions: true, // Include questions in the response
+            },
         });
 
-        return NextResponse.json(quizzes);
+        // Parse options for each question
+        const quizzesWithParsedQuestions = quizzes.map((quiz) => ({
+            ...quiz,
+            questions: quiz.questions.map((question) => ({
+                ...question,
+                options: question.options ? JSON.parse(question.options) : [], // Parse JSON string
+            })),
+        }));
+
+        return NextResponse.json(quizzesWithParsedQuestions);
     } catch (error) {
         console.error("[QUIZ_FETCH_ERROR]", error);
         return new NextResponse("Internal Server Error", { status: 500 });
@@ -23,7 +29,7 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
     try {
-        const { userId } = auth();
+        const { userId } = auth(); // Get the userId from the authentication context
         const { title, description, questions } = await req.json();
 
         if (!userId) {
@@ -34,11 +40,11 @@ export async function POST(req: Request) {
             data: {
                 title,
                 description,
-                userId,
+                userId, // Include userId in the quiz creation
                 questions: {
                     create: questions.map((question: any) => ({
                         question: question.question,
-                        options: JSON.stringify(question.options),
+                        options: JSON.stringify(question.options ?? []), // Ensure options are always a JSON string
                         correctAnswer: question.correctAnswer,
                     })),
                 },

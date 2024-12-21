@@ -171,10 +171,10 @@ model Quiz {
 
 
 model Question {
-    id            String   @id @default(cuid())
-    question      String
-    options       Json
+    id           String   @id @default(uuid())
+    question     String
+    options      String   // Store options as JSON string
     correctAnswer String
-    quizId        String
-    quiz          Quiz     @relation(fields: [quizId], references: [id])
+    quizId       String
+    quiz         Quiz     @relation(fields: [quizId], references: [id])
 }
