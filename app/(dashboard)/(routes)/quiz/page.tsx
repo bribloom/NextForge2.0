@@ -62,15 +62,15 @@ const QuizPage = () => {
             <div className="max-w-3xl mx-auto p-6">
                 {/* Add Toaster to enable toast notifications */}
                 <Toaster />
-                <h1 className="text-2xl font-bold mb-4">{selectedQuiz.title}</h1>
-                <p className="mb-6">{selectedQuiz.description}</p>
+                <h1 className="text-2xl font-bold mb-4 text-emerald-500">{selectedQuiz.title}</h1>
+                <p className="mb-6 border rounded-3xl p-5">{selectedQuiz.description}</p>
                 {selectedQuiz.questions?.length > 0 ? (
                     selectedQuiz.questions.map((question: any) => (
                         <div key={question.id} className="mb-4">
-                            <h3 className="font-medium">{question.question}</h3>
+                            <h3 className="font-semibold mb-5">{question.question}</h3>
                             {question.options?.length > 0 ? (
                                 question.options.map((option: string, index: number) => (
-                                    <div key={index} className="flex items-center">
+                                    <div key={index} className="flex items-center ">
                                         <input
                                             type="radio"
                                             id={`${question.id}-${index}`}
@@ -102,11 +102,11 @@ const QuizPage = () => {
                     <p>No questions available for this quiz.</p>
                 )}
                 {!submitted && (
-                    <Button onClick={handleSubmit} className="mt-4">
+                    <Button onClick={handleSubmit} className="mt-4 bg-emerald-500 mr-5">
                         Submit Quiz
                     </Button>
                 )}
-                {submitted && <p className="mt-4">Quiz submitted! Thank you.</p>}
+                {submitted && <p className="mt-4 text-emerald-500 font-semibold ">Quiz submitted! Thank you.</p>}
                 <Button
                     onClick={() => setSelectedQuiz(null)}
                     className="mt-4 bg-gray-500 hover:bg-gray-700"
@@ -124,9 +124,9 @@ const QuizPage = () => {
             {quizzes.length === 0 && <p>No quizzes available.</p>}
             <ul className="space-y-4">
                 {quizzes.map((quiz) => (
-                    <li key={quiz.id} className="border p-4 rounded-md">
-                        <h2 className="font-medium text-lg">{quiz.title}</h2>
-                        <p className="text-sm text-gray-600">{quiz.description}</p>
+                    <li key={quiz.id} className="border p-4 rounded-3xl bg-emerald-500">
+                        <h2 className="font-semibold text-lg mb-3">{quiz.title}</h2>
+                        <p className="text-sm text-white mb-3">{quiz.description}</p>
                         <Button
                             onClick={() => handleSelectQuiz(quiz)}
                             className="mt-2"
