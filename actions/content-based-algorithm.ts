@@ -40,6 +40,7 @@ export const getCourseRecommendations = async (userId: string): Promise<{ recomm
         const isCompleted = completedCourses.some(progress => progress.chapter.course.id === course.id);
         return !isCompleted;
     });
+//////////////////////////////////////////////////////////////////////////
 
     // Content vector for each course based on title and description
     const courseVectors = filteredCourses.map(course => ({

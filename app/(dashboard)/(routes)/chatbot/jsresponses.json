@@ -321,12 +321,6 @@
       "responses": [
         "In JavaScript, you can check the data type of a variable using the `typeof` operator. It returns a string indicating the type of the unevaluated operand. Example:\n```javascript\nlet name = 'Alice';\nconsole.log(typeof name); // 'string'\n\nlet age = 30;\nconsole.log(typeof age); // 'number'\n\nlet isStudent = true;\nconsole.log(typeof isStudent); // 'boolean'\n\nlet value = null;\nconsole.log(typeof value); // 'object' (this is a known quirk)\n\nlet x;\nconsole.log(typeof x); // 'undefined'\n```"
       ]
-    },
-    {
-      "pattern": "what is type coercion in javascript?|javascript type coercion|define type coercion|type conversion in javascript",
-      "responses": [
-        "Type coercion is the process of converting a value from one data type to another. JavaScript performs type coercion automatically in certain situations, such as during comparisons or when using operators. For example:\n```javascript\nlet result = '5' + 3; // '53' (string concatenation)\nlet sum = '5' - 3; // 2 (string is coerced to a number)\n```"
-      ]
     }
     ]
   }
